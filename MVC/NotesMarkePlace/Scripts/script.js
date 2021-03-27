@@ -95,3 +95,29 @@ $(".toggle-password").click(function () {
 		input.attr("type", "password");
 	}
 });
+
+/*=================================
+	FAQ Add Minus
+===================================*/
+$(document).ready(function () {
+	$('.card .collapse').on('shown.bs.collapse', function () {
+		$(this).parent().find('img').attr('src','"~/images/FAQ/minus.png"');		
+		$(this).parent().find('.card-header').css('background-color', '#fff').css('border', '2px solid #d1d1d1').css('border-bottom', 'none').css('background-position', 'center');
+		$(this).parent().find('.card-header p').css('font-weight', '600');
+		$(this).parent().find('.card-body').css('border-top', 'none');
+
+	});
+
+	$('.card .collapse').on('hidden.bs.collapse', function () {
+		$(this).parent().find('img').attr('src','"~/images/FAQ/add.png"');
+		$(this).parent().find('.card-header').css('background-color', 'rgba(0,0,0,.03)').css('border', 'none');
+		$(this).parent().find('.card-header p').css('font-weight', '400');
+	});
+});
+
+
+/*=================================
+	Search Notes Search and Filter
+===================================*/
+
+

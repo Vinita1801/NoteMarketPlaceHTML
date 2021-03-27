@@ -151,29 +151,33 @@
                     <h3>Basic Note Details</h3>
                 </div>
 
-                @Model AddNote 
+                @using(Html.BeginForm("addNote", "RegisteredUsers", FormMethod.Post,new { enctype = "multipart/form-data" }))
+                {
+
+
                 <div class="details">
-                    @using (Html.BeginForm())
-                    {
+                    
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group text-left">
                                     @Html.LabelFor(m => m.Title, "Title *")
-                                    @Html.EditorFor(model => model.Title, new { htmlAttributes =  new { @class = "form-control", @placeholder = "Enter your notes title", @required = true } })
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your notes title", @required = true } })
+                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group text-left">
                                     @Html.LabelFor(m => m.Category, "Category *")
-                                    @Html.DropDownListFor(model=> model.Category, new SelectList(Model.Category,"ID","Name"), "Select your category", new {@class="form-control" })
+                                    @Html.DropDownListFor(model => model.Category, new SelectList(Model.categories, "ID", "Name"), "Select your category", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 upload-profile-picture">
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.DisplayPicture, "Display Picture *") 
-                                    @Html.EditorFor(model => model.DisplayPicture, new {htmlAttributes = new {@class = "form-control", @type = "file", @accept = "images/*"}})
+                                    @Html.TextBoxFor(m=>m.DisplayPictureFile,new { @class= "form-control" , @type="file" })
                                 </div>
 
                                 <div class="uploadmypic">
@@ -186,8 +190,9 @@
                             <div class="col-md-6 upload-profile-picture">
 
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.UploadNotes,"Upload Notes *")
-                                    @Html.EditorFor(model => model.UploadNotes, new { htmlAttributes = new { @class = "form-control", @type = "file", @accept = "images/*" } })
+                                    @Html.LabelFor(m => m.UploadNote, "Upload Notes *")
+                                    @Html.TextBoxFor(m => m.UploadNoteFile, new { @class = "form-control", @type = "file" })
+                                    @Html.ValidationMessageFor(model => model.UploadNoteFile, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="uploadmypic">
@@ -201,26 +206,27 @@
                             <div class="col-md-6">
                                 <div class="form-group text-left">
                                     @Html.LabelFor(m => m.NoteType, "Type *")
-                                    @Html.DropDownListFor(model => model.NoteType, new SelectList(Model.NoteType, "ID", "Name"), "Select your note type", new { @class = "form-control" })
+                                    @Html.DropDownListFor(model => model.NoteType, new SelectList(Model.types, "ID", "Name"), "Select your note type", new { @class = "form-control" })
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group text-left">
                                     @Html.LabelFor(m => m.NumberofPages, "Number of Pages *")
-                                    @Html.EditorFor(model => model.NumberofPages, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Enter number of note pages"} })                                  
+                                    @Html.EditorFor(model => model.NumberofPages, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Enter number of note pages" } })                                  
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="form-group text-left ">
                                     @Html.LabelFor(m => m.Description, "Description *")
-                                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new {@class ="form-control box-size", @id="description", @placeholder="Enter your description", @required = true } })
+                                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control box-size", @id = "description", @placeholder = "Enter your description", @required = true } })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                         </div>
-                    }
+
 
                 </div>
 
@@ -232,14 +238,13 @@
 
                 <div class="details">
 
-                    @using (Html.BeginForm())
-                    {
+                    
                         <div class="row">
 
                             <div class="col-md-6">
                                 <div class="form-group text-left">
                                     @Html.LabelFor(m => m.Country, "Country")
-                                    @Html.DropDownListFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } }, new SelectList(Enum.GetValues(typeof(Country))), "Select your country")
+                                    @Html.DropDownListFor(model => model.Country, new SelectList(Model.countries, "ID", "Name"), "Select your country", new { @class = "form-control" })
                                 </div>
                             </div>
 
@@ -251,7 +256,7 @@
                             </div>
 
                         </div>
-                    }
+                    
 
                 </div>
 
@@ -263,8 +268,7 @@
 
                 <div class="details">
 
-                    @using (Html.BeginForm())
-                    {
+                  
                         <div class="row">
 
                             <div class="col-md-6">
@@ -284,12 +288,12 @@
                             <div class="col-md-6">
                                 <div class="form-group text-left">
                                     @Html.LabelFor(m => m.Professor, "Professor/Lecturer")
-                                    @Html.EditorFor(model => model.Professor, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your professor name" } })r
+                                    @Html.EditorFor(model => model.Professor, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your professor name" } })
                                 </div>
                             </div>
 
                         </div>
-                    }
+                    
 
                 </div>
 
@@ -300,8 +304,7 @@
 
                 <div class="details">
 
-                    @using (Html.BeginForm())
-                    {
+                    
                         <div class="row">
 
                             <div class="col-md-6">
@@ -309,8 +312,8 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group text-left">
-                                            <label>Sell For *</label>
                                             @Html.LabelFor(m => m.IsPaid, "Sell For *")
+                                            @Html.ValidationMessageFor(model => model.IsPaid, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="left margin-right">
                                             <div class="left">
@@ -329,6 +332,7 @@
                                                 @Html.LabelFor(m => m.IsPaid, "Paid", new { htmlAttributes = new { @class = "custom-control-label form-check" } })
                                             </div>
                                         </div>
+                                        
 
                                     </div>
 
@@ -336,6 +340,7 @@
                                         <div class="form-group text-left sell-price">
                                             @Html.LabelFor(m => m.SellingPrice, "Sell Price *")
                                             @Html.EditorFor(model => model.SellingPrice, new { htmlAttributes = new { @class = "form-control", @id = "sell-price", @placeholder = "Enter your price" } })
+                                            @Html.ValidationMessageFor(model => model.SellingPrice, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                 </div>
@@ -345,7 +350,8 @@
 
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.NotesPreview, "Note Preview *")
-                                    @Html.EditorFor(model => model.NotesPreview, new { htmlAttributes = new { @class = "form-control", @type = "file", @accept = "images/*" } })
+                                    @Html.TextBoxFor(m => m.NotesPreviewFile, new { @class = "form-control", @type = "file" })
+                                    @Html.ValidationMessageFor(model => model.NotesPreviewFile, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="uploadmypic">
@@ -358,15 +364,17 @@
 
 
                         </div>
-                    }
+                    
 
                 </div>
 
                 <div>
-                    <button class="btn btn-sell" type="submit">save</button>
-                    <button class="btn btn-sell btn-publish margin-left" type="submit">publish</button>
+                   
+                        <button class="btn btn-sell" type="submit">save</button>
+                        <!-- <button class="btn btn-sell btn-publish margin-left" type="submit">publish</button> -->
+                    
                 </div>
-
+                    }
 
             </div><hr>
         </div>
@@ -377,7 +385,6 @@
     <footer class="text-left">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-10 col-sm-8 col-xs-12">
                     <p>
                         <br>
@@ -400,16 +407,16 @@
     <!-- Footer Ends -->
 
     <!-- JQuery -->
-    <script src="../js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
 
     <!-- Bootstrap JS -->
-    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 
     <!-- Wow JS -->
-    <script src="../js/wow/wow.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="../js/script.js"></script>
+    <script src="~/Scripts/script.js"></script>
 
 </body>
 

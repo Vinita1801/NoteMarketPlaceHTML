@@ -58,6 +58,12 @@
       <HintPath>..\packages\FakeItEasy.6.2.1\lib\net45\FakeItEasy.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -140,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\ContactUs.cs" />
     <Compile Include="Models\Country.cs">
       <DependentUpon>Models.tt</DependentUpon>
@@ -149,6 +156,7 @@
     </Compile>
     <Compile Include="Models\AddNote.cs" />
     <Compile Include="Models\Extended\User.cs" />
+    <Compile Include="Models\Extended\userprofile.cs" />
     <Compile Include="Models\Models.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -176,9 +184,11 @@
     <Compile Include="Models\SellerNote.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SellerNoteContext.cs" />
     <Compile Include="Models\SellerNotesAttachement.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Extended\SellerNotesAttachment.cs" />
     <Compile Include="Models\SellerNotesReportedIssue.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
@@ -208,6 +218,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\owl.theme.default.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -315,7 +326,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="images\FAQ\Thumbs.db" />
     <Content Include="images\Homepage\Thumbs.db" />
     <Content Include="images\NotesDetails\Thumbs.db" />
     <Content Include="images\Pre-Login\Thumbs%281%29.db" />
@@ -330,6 +340,7 @@
     <Content Include="Models\Models.edmx.diagram">
       <DependentUpon>Models.edmx</DependentUpon>
     </Content>
+    <Content Include="images\FAQ\Thumbs.db" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -344,15 +355,18 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\RegisteredUsers\addNote.cshtml" />
+    <Content Include="Views\RegisteredUsers\changePassword.cshtml" />
     <None Include="Views\RegisteredUsers\EmailVerification.cshtml" />
+    <Content Include="Views\RegisteredUsers\FAQ.cshtml" />
     <None Include="Views\RegisteredUsers\forgotPassword.cshtml" />
     <None Include="Views\RegisteredUsers\login.cshtml" />
+    <Content Include="Views\RegisteredUsers\NoteDetails.cshtml" />
+    <Content Include="Views\RegisteredUsers\MyDownloads.cshtml" />
     <None Include="Views\RegisteredUsers\signup.cshtml" />
     <Content Include="Scripts\script.js" />
     <None Include="Views\RegisteredUsers\index.cshtml" />
     <None Include="Views\RegisteredUsers\ContactUs.cshtml" />
     <None Include="Views\RegisteredUsers\Dashboard.cshtml" />
-    <None Include="Views\RegisteredUsers\FAQ.cshtml" />
     <None Include="Views\RegisteredUsers\searchNotes.cshtml" />
     <Content Include="Scripts\wow.min.js" />
     <None Include="Views\RegisteredUsers\BuyerRequests.cshtml" />
@@ -370,9 +384,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\RegisteredUsers\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

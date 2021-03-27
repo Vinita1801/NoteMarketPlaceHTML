@@ -9,20 +9,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- Title -->
-    <title>Notes MarketPlace</title>
+    <title> @ViewBag.Title  Notes MarketPlace</title>
+
 
     <!-- Favicon-->
-    <link rel="shortcut icon" href="../images/Homepage/favicon.ico">
+    <link rel="shortcut icon" href="~/images/Homepage/favicon.ico">
 
     <!-- Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700" rel="stylesheet">
 
     <!-- Fontawesome -->
-	<link rel="stylesheet" href="~/Content/font-awesome.min.css">
-  
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+
     <!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="~/Content/bootstrap.min.css">
-  
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+
 
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet " href="~/Content/owl.carousel.min.css">
@@ -30,90 +31,67 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/Content/style.css">
-    
+
     <!-- Responsive Tabs CSS -->
-	<link rel="stylesheet" href="~/Content/responsive.css">
+    <link rel="stylesheet" href="~/Content/responsive.css">
 
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="65">
-   
-    <!-- Header -->
-	<header>
-		<nav class="navbar navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="site-nav-wrapper">
-					
-					<div class="navbar-header">
-					 <!-- Mobile Menu Open Button -->
-						<span id="mobile-nav-open-btn">&#9776;</span>
-						
-						<!-- Logo -->
-						<a class="navbar-brand smooth-scroll" href="#">
-							<img src="../images/Homepage/top-logo.png" alt="logo">
-						</a>
-					</div>
-					
-					<!-- Main Menu -->
-					<div class="container">
-						<div class="collapse navbar-collapse">
-							<ul class="nav navbar-nav pull-right">
-								<li><a class="smooth-scroll" href="#">Search Notes</a></li>
-								<li><a class="smooth-scroll" href="#">Sell Your Notes</a></li>
-								<li><a class="smooth-scroll" href="#">FAQ</a></li>
-								<li><a class="smooth-scroll" href="#">Contact Us</a></li>
-								
 
-                                <a id ="login-btn" class="btn btn-blue" href="#" title="Sell Book" role="button">Login</a>
-							    
-							</ul>
-						</div>
-					</div>
-					
-					<!-- Mobile Menu -->
-					<div id="mobile-nav">
-						<!-- Mobile Menu Close Button -->
-						<span id="mobile-nav-close-btn">&times;</span>
-						
-						<div id="mobile-nav-content">
-							<ul class="nav">
-								<li><a class="smooth-scroll" href="#">Search Notes</a></li>
-								<li><a class="smooth-scroll" href="#">Sell Your Notes</a></li>
-								<li><a class="smooth-scroll" href="#">Buyer Requests</a></li>
-								<li><a class="smooth-scroll" href="#">FAQ</a></li>
-								<li><a class="smooth-scroll" href="#">Contact Us</a></li>
-								<li>
-                                    <div class="dropdown">
-                                    <img src="../images/Dashboard/user-img.png" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client" class="img-circle person-id-mobile-nav">
-                                    
-                                    
-                                    <div class="dropdown-menu text-center mobile-menu-dropdown">
-                                        <div class="dropdown-item" href="#">My Profile</div><br>
-                                        <div class="dropdown-item" href="#">My Downloads</div><br>
-                                        <div class="dropdown-item active" href="#">My Sold Notes</div><br>
-                                        <div class="dropdown-item" href="#">My Rejected Notes</div><br>
-                                        <div class="dropdown-item" href="#">Change Password</div>
-                                        <div class="dropdown-item item-logout" href="#">Logout</div>
-                                    </div>
-                                    </div>
-                                    
-								</li>
-								
-								
-								<li><a id ="login-btn" class="btn btn-blue" href="#" title="Sell Book" role="button">Login</a>	</li>
-							</ul>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- Header Ends -->
-    
-     <!-- FAQ Heading -->
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="site-nav-wrapper">
+
+                    <div class="navbar-header">
+                        <!-- Mobile Menu Open Button -->
+                        <span id="mobile-nav-open-btn">&#9776;</span>
+
+                        <!-- Logo -->
+                        <a class="navbar-brand smooth-scroll" href="#">
+                            <img src="~/images/Homepage/top-logo.png" alt="logo">
+                        </a>
+                    </div>
+
+                    <!-- Main Menu -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav pull-right">
+                                <li>@Html.ActionLink("Search Notes", "searchNotes", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Sell Your Notes", "Dashboard", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("FAQ", "FAQ", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Contact Us", "ContactUs", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Login", "login", null, new { @id = "login-btn", @class = "btn btn-blue", @title = "Login", @role = "button" }) </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu -->
+                    <div id="mobile-nav">
+                        <!-- Mobile Menu Close Button -->
+                        <span id="mobile-nav-close-btn">&times;</span>
+
+                        <div id="mobile-nav-content">
+                            <ul class="nav">
+                                <li>@Html.ActionLink("Search Notes", "searchNotes", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Sell Your Notes", "Dashboard", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("FAQ", "FAQ", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Contact Us", "ContactUs", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Login", "login", null, new { @id = "login-btn", @class = "btn btn-blue", @title = "Login", @role = "button" }) </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+    <!-- FAQ Heading -->
     <section id="FAQ">
-        <img src="../images/ContactUs/banner-with-overlay.jpg" alt="banner" class="search">
+        <img src="~/images/ContactUs/banner-with-overlay.jpg" alt="banner" class="search">
         <div id="faq-content">
             <div class="container text-center" id="faq-content-inner">
                 <div class="row">
@@ -129,106 +107,218 @@
 
     </section>
     <!-- FAQ Heading Ends -->
-    
     <!-- Questions -->
     <section id="Questions">
         <div class="content-box-md">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-heading general-question-heading">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-heading">
                         <h2>General Questions</h2>
                     </div>
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark">
-                        <p id="question">What is Marketplace-Notes?
-                        <img src="../images/FAQ/minus.png" alt="minus" title="minus" class="pull-right"></p>
-                        <p id="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores repellendus nihil sit mollitia nam ipsa vero quaerat, velit sint, tempora fugit quo. Voluptas in quam perferendis laboriosam facere, illo ex.</p>
+
+
+                     <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingOne">
+                                    <p id="question1">
+                                        What is Notes Marketplace?
+                                        <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer1" aria-expanded="true" aria-controls="answer1" class="pull-right">
+                                    </p>
+                                </div>
+
+                            <div id="answer1" class="collapse" aria-labelledby="HeadingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Notes Marketplace is an online marketplace for university students to buy and sell their course notes
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingTwo">
+                                <p id="question2">
+                                    Where did Notes Marketplace start?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer2" aria-expanded="true" aria-controls="answer2" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer2" class="collapse" aria-labelledby="HeadingTwo">
+                                <div class="card-body">
+                                    What started out as four friends chucking around an idea in Ahmedabad ended up turning into an
+                                    earliest version of Notes Marketplace. So, with 2021 batch of tatvasoft – we has developed this product.
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey">
-                        <p>What do the university say?
-                            <img src="../images/FAQ/add.png" alt="add" title="add" class="pull-right"></p>
+                        <!-- Uploaders -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-heading">
+                            <h2>Uploaders</h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingThree">
+                                <p id="question3">
+                                    Why should I upload now?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer3" aria-expanded="true" aria-controls="answer3" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer3" class="collapse" aria-labelledby="HeadingThree">
+                                <div class="card-body">
+                                    To maximize sales. We can't sell your notes if they are rotting on your hard drive. Your notes are
+                                    available for purchase the instant they are approved, which means that you could be missing potential
+                                    sales as we speak. Despite exam and holiday breaks, our users purchase notes all year round, so the best
+                                    time to upload notes is always today.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingFour">
+                                <p id="question4">
+                                    What can't I sell?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer4" aria-expanded="true" aria-controls="answer4" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer4" class="collapse" aria-labelledby="HeadingFour">
+                                <div class="card-body">
+                                    We won't approve materials that have been created by your university or another third party. We also
+                                    do not accept assignments, essays, practical’s or take-home exams. We love notes though.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingFive">
+                                <p id="question4">
+                                    How long does it take to upload?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer5" aria-expanded="true" aria-controls="answer5" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer5" class="collapse" aria-labelledby="HeadingFive">
+                                <div class="card-body">
+                                    Uploading notes is quick and easy. It can take as little as 90 seconds per set of notes. Put it this way, in
+                                    the time it took to read these FAQs, you could’ve uploaded several sets of notes.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- Downloaders -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-heading">
+                            <h2>Downloaders</h2>
+                        </div>
+
+
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingSix">
+                                <p id="question6">
+                                    How do I buy notes?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer6" aria-expanded="true" aria-controls="answer6" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer6" class="collapse" aria-labelledby="HeadingSix">
+                                <div class="card-body">
+                                    Search for the notes you are after using the 'SEARCH NOTES' tab at the at the top right of every page.
+                                    You can then filter results by university, category, course information etc. To purchase, go to detail page
+                                    of note and click on download button. If notes are free to download – it will download over the browser
+                                    and if notes are paid, Once Seller will allow download you can have notes at my downloads grid for
+                                    actual download.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingSeven">
+                                <p id="question7">
+                                    Why should I buy notes?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer7" aria-expanded="true" aria-controls="answer7" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer7" class="collapse" aria-labelledby="HeadingSeven">
+                                <div class="card-body">
+                                    The notes on our site are incredibly useful as an educational tool when used correctly. They effectively
+                                    demonstrate the techniques that top students employ in order to receive top marks. They also
+                                    summaries the course in a concise format and show what that student believed were the most
+                                    important elements of the course. Learn from the best.
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey card-header" id="HeadingEight">
+                                <p id="question8">
+                                    Will downloading notes guarantee I improve my grades?
+                                    <img src="~/images/FAQ/add.png" role="button" data-toggle="collapse" data-target="#answer8" aria-expanded="true" aria-controls="answer8" class="pull-right">
+                                </p>
+                            </div>
+
+                            <div id="answer8" class="collapse" aria-labelledby="HeadingEight">
+                                <div class="card-body">
+                                    How long is a piece of string? However, 90% of students who purchased notes through our site said that
+                                    doing so improved their grades.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
-                    
-                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey">
-                        <p>Is this legal?
-                        <img src="../images/FAQ/add.png" alt="add" title="add" class="pull-right"></p>
-                    </div>
-                    
-                    <!-- Uploaders -->
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-heading">
-                        <h2>Uploaders</h2>
-                    </div>
-                    
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey">
-                        <p>What can't I sell?
-                            <img src="../images/FAQ/add.png" alt="add" title="add" class="pull-right"></p>
-                    </div>
-                    
-                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey">
-                        <p>What notes can I sell?
-                        <img src="../images/FAQ/add.png" alt="add" title="add" class="pull-right"></p>
-                    </div>
-                    
-                    <!-- Downloaders -->
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-heading">
-                        <h2>Downloaders</h2>
-                    </div>
-                    
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey">
-                        <p>How do I buy notes?
-                            <img src="../images/FAQ/add.png" alt="add" title="add" class="pull-right"></p>
-                    </div>
-                    
-                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-mark-grey">
-                        <p>Can I edit the notes I purchased?
-                        <img src="../images/FAQ/add.png" alt="add" title="add" class="pull-right"></p>
-                    </div>   
                 </div>
-            </div>
         </div> <hr>
     </section>
     <!-- Questions Ends -->
-    
-    
     <!-- Footer -->
-	  <footer class="text-left">
-	  	<div class="container">
-	  		<div class="row">
-	  			<div class="col-md-10 col-sm-8 col-xs-12">
-	  				<p> <br>
-	  	                Copyright &copy; TatvaSoft All rights reserved.
-	  				</p>
-	  			</div>
-	  			
-	  			<div class="col-md-2 col-sm-4 col-xs-12">                
-                <ul class="social-list"> <br>
-                    <li><a href="#"><img src="../images/Homepage/facebook.png" alter="facebook"></a></li>
-				    <li><a href="#"><img src="../images/Homepage/twitter.png" alter="twitter"></a></li>
-                    <li><a href="#"><img src="../images/Homepage/linkedin.png" alter="linkedin"></a></li>
-                </ul>
-                
+    <footer class="text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-8 col-xs-12">
+                    <p>
+                        <br>
+                        Copyright &copy; TatvaSoft All rights reserved.
+                    </p>
                 </div>
-	  		</div>	
-	  	</div>
-	  </footer>
-	 <!-- Footer Ends -->
-    
-     <!-- JQuery -->
-	<script src="../js/jquery.min.js"></script>
 
-	<!-- Bootstrap JS -->
-	<script src="../js/bootstrap/bootstrap.min.js"></script>
-   
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <ul class="social-list">
+                        <br>
+                        <li><a href="#"><img src="~/images/Homepage/facebook.png" alter="facebook"></a></li>
+                        <li><a href="#"><img src="~/images/Homepage/twitter.png" alter="twitter"></a></li>
+                        <li><a href="#"><img src="~/images/Homepage/linkedin.png" alter="linkedin"></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+    <!-- JQuery -->
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
     <!-- Wow JS -->
-	<script src="../js/wow/wow.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
 
-	<!-- Custom JS -->
-	<script src="../js/script.js"> </script>
-     
-	
+    <!-- Custom JS -->
+    <script src="~/Scripts/script.js"></script>
+
+
 </body>
 
 </html>

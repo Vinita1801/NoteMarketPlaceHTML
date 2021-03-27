@@ -26,9 +26,6 @@ namespace NotesMarkePlace.Models
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public bool IsActive { get; set; }
-
-        public bool RememberMe { get; set; }
-
         public System.Guid ActivationCode { get; set; }
     
         public virtual UserRole UserRole { get; set; }

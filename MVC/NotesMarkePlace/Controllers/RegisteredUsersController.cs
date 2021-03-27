@@ -13,12 +13,16 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.Routing;
 using System.IO;
+using PagedList;
+using System.Configuration;
+using System.Data.Entity.Validation;
 
 namespace NotesMarkePlace.Controllers
 {
 
     public class RegisteredUsersController : Controller
     {
+        int temp = 0;
 
         // GET: Login
         [HttpGet]
@@ -35,7 +39,8 @@ namespace NotesMarkePlace.Controllers
             string message = "";
             using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
             {
-                var v = db.Users.Where(a => a.EmailID == user.EmailID).FirstOrDefault();
+                User v = db.Users.Where(a => a.EmailID == user.EmailID).FirstOrDefault();
+                Session["UserId"] = v.Id;
                 if (v != null)
                 {
                     if (!v.IsEmailVerified)
@@ -52,8 +57,8 @@ namespace NotesMarkePlace.Controllers
                         cookie.Expires = DateTime.Now.AddMinutes(timeout);
                         cookie.HttpOnly = true;
                         Response.Cookies.Add(cookie);
-
-
+                        temp = user.Id;
+                        
                         if (Url.IsLocalUrl(ReturnUrl))
                         {
                             return Redirect(ReturnUrl);
@@ -348,61 +353,206 @@ namespace NotesMarkePlace.Controllers
         [HttpGet]
         public ActionResult addNote()
         {
-            return View();
+
+            AddNote a = new AddNote
+            {
+                 types = GetNoteTypes(),
+                 categories = GetNoteCategories(),
+                 countries = GetCountryList()
+            };
+            return View(a);
         }
+
+        public List<NoteType> GetNoteTypes()
+        {
+            using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                List<NoteType> noteTypes = db.NoteTypes.ToList();
+                return noteTypes;
+            }
+
+        }
+
+        public List<NoteCategory> GetNoteCategories()
+        {
+            using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                List<NoteCategory> noteCategories = db.NoteCategories.ToList();
+                return noteCategories;
+            }
+
+        }
+
+        public List<Country> GetCountryList()
+        {
+            using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                List<Country> country = db.Countries.ToList();
+                return country;
+            }
+
+        }
+
 
         [HttpPost]
-        public ActionResult addnote(SellerNote sellernote, HttpPostedFileBase file)
+        public ActionResult addNote(AddNote addnote,SellerNotesAttachment sellernoteattach)
         {
-            bool Status = false;
-            string message = "";
-
-            // Model Validation
-            if (ModelState.IsValid)
+           using(NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
             {
-                #region
-                // Save To Database
-                using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+                SellerNote sellernote = new SellerNote();
+
+                //Need to change after session management
+                sellernote.SellerId = 1;
+
+                sellernote.Status = 1;
+
+                sellernote.ActionedBy = 1;
+
+                sellernote.Title = addnote.Title;
+
+                sellernote.Category = addnote.Category;
+
+                if (addnote.DisplayPictureFile != null)
                 {
-                    try
-                    {
-                        if (file.ContentLength > 0)
-                        {
-                            string _FileName = Path.GetFileName(file.FileName);
-                            string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-                            file.SaveAs(_path);
-                        }
-                        ViewBag.Message = "File Uploaded Successfully!!";
-                        return View();
-                    }
-                    catch
-                    {
-                        ViewBag.Message = "File upload failed!!";
-                        return View();
-                    }
+                    string FileName = Path.GetFileNameWithoutExtension(addnote.DisplayPictureFile.FileName);
 
-                    db.SellerNotes.Add(sellernote);
-                    db.SaveChanges();
+                    string FileExtension = Path.GetExtension(addnote.DisplayPictureFile.FileName);
 
-                    message = "Notes Added Sucessfully";
-                    Status = true;
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + FileName.Trim() + FileExtension;
+
+                    sellernote.DisplayPicture = FileName;
+
+                    FileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + FileName);
+
+                    addnote.DisplayPictureFile.SaveAs(FileName);
+
+           
                 }
-                #endregion
-            }
-            else
-            {
-                message = "Invalid Request";
+                
+                sellernote.NoteType = addnote.NoteType;
+
+                sellernote.NumberofPages = addnote.NumberofPages;
+
+                sellernote.Description = addnote.Description;
+
+                sellernote.Country = addnote.Country;
+
+                sellernote.UniversityName = addnote.UniversityName;
+
+                sellernote.Course = addnote.Course;
+
+                sellernote.CourseCode = addnote.CourseCode;
+
+                sellernote.Professor = addnote.Professor;
+
+                sellernote.IsPaid = addnote.IsPaid;
+
+                sellernote.SellingPrice = addnote.SellingPrice;
+
+                if(addnote.NotesPreviewFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(addnote.NotesPreviewFile.FileName);
+
+                    string fileExtension = Path.GetExtension(addnote.NotesPreviewFile.FileName);
+
+                    fileName = DateTime.Now.ToString("yyyyMMdd") + fileName.Trim() + fileExtension;
+
+                    sellernote.NotesPreview = fileName;
+
+                    fileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + fileName);
+
+                    addnote.NotesPreviewFile.SaveAs(fileName);
+
+                }
+
+                db.SellerNotes.Add(sellernote);
+                db.SaveChanges();
+
+                SellerNotesAttachement sellernotesattachment = new SellerNotesAttachement();
+
+                SellerNote sn = db.SellerNotes.Where(e => e.Title == sellernote.Title).FirstOrDefault();
+                sellernotesattachment.NoteID = sn.ID;
+                
+
+                if(addnote.UploadNoteFile!= null)
+                {
+                    string FileName = Path.GetFileNameWithoutExtension(addnote.UploadNoteFile.FileName);
+
+                    string FilePath = Path.GetExtension(addnote.UploadNoteFile.FileName);
+
+                    sellernotesattachment.FileName = FileName;
+
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + FileName.Trim() + FilePath;
+
+                    FileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + FileName);
+
+                    sellernotesattachment.FilePath = FileName;
+
+                    addnote.UploadNoteFile.SaveAs(FileName);
+
+                }
+
+
+                db.SellerNotesAttachements.Add(sellernotesattachment);
+                db.SaveChanges();
+                
+
+              //  db.SellerNotesAttachements.Add(sellernotesattachment);
+               // db.SaveChanges();
+
             }
 
-            ViewBag.Message = message;
-            ViewBag.Status = Status;
-            return View(sellernote);
+            return RedirectToAction("addNote");
         }
 
+
         [HttpGet]
-        public ActionResult searchNotes()
+        public ActionResult searchNotes(int ? i,string search,string type,string category,string country,string university,string course)
         {
-            return View();
+            NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1();
+            ViewData["Type"] = db.NoteTypes.ToList<NoteType>();
+            ViewData["Category"] = db.NoteCategories.ToList<NoteCategory>();
+            ViewData["Country"] = db.Countries.ToList<Country>();
+            ViewData["University"] = db.SellerNotes.Where(e => e.UniversityName != null).Select(e => e.UniversityName).Distinct().ToList();
+            ViewData["Course"] = db.SellerNotes.Where(e => e.Course != null).Select(e => e.Course).Distinct().ToList();
+
+            List<SellerNote> notes = db.SellerNotes.Where(e => e.IsActive == true).ToList();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                notes = notes.Where(e => e.Title.ToLower().Contains(search.ToLower())).ToList();
+            }
+         
+
+            if (type != "Select type" && !String.IsNullOrEmpty(type))
+            {
+                notes = notes.Where(e => e.NoteType != null && e.NoteType1.Name.ToLower().Contains(type.ToLower())).ToList();
+               
+            }
+
+            if (category != "Select category" && !String.IsNullOrEmpty(category))
+            {
+                notes = notes.Where(e => e.Category!= null && e.NoteCategory.Name.ToLower().Contains(category.ToLower())).ToList();
+            }
+
+
+            if (country!= "Select country" && !String.IsNullOrEmpty(country))
+            {
+                notes = notes.Where(e =>e.Country!= null && e.Country1.Name.ToLower().Contains(country.ToLower())).ToList();
+            }
+
+            if(university != "Select university" && !String.IsNullOrEmpty(university))
+            {
+                notes = notes.Where(e => e.UniversityName.ToLower().Contains(university.ToLower())).ToList();
+            }
+
+            if (course != "Select course" && !String.IsNullOrEmpty(course))
+            {
+                notes = notes.Where(e => e.Course.ToLower().Contains(course.ToLower())).ToList();
+            }
+
+            ViewBag.Count=notes.Count;
+            return View(notes.ToList().ToPagedList(i ?? 1,5));
         }
 
         [HttpGet]
@@ -410,5 +560,219 @@ namespace NotesMarkePlace.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult changePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult changePassword(ChangePassword changepassword)
+        {
+            string message = "";
+
+            int uid = Convert.ToInt32(Session["UserId"]);
+            using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                User user = db.Users.Find(uid);
+                
+                if (ModelState.IsValid)
+                {
+                    if (user.Password == changepassword.OldPassword)
+                    {
+                        user.Password = Crypto.Hash(changepassword.NewPassword);
+                        user.ConfirmPassword = Crypto.Hash(changepassword.ConfirmPassword);
+
+                            db.Users.Add(user);
+                            db.SaveChanges();
+                        
+                        message = "Password changed succesfully for " + user.EmailID;
+                    }
+                    else
+                    {
+                        message = "Old password is incorrect";
+                    }
+
+                }
+
+            }
+            ViewBag.Message = message;
+            return View();
+        }    
+
+        [HttpGet]
+        public ActionResult UserProfile()
+        {
+            NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1();
+            ViewData["Gender"] = db.ReferenceDatas.ToList<ReferenceData>();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UserProfile(userprofile up)
+        {
+            using(NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                UserProfile uprofile = new UserProfile();
+
+                uprofile.UserID = 1;
+
+                uprofile.DOB = up.DOB;
+
+                uprofile.Gender = up.Gender;
+
+                uprofile.SecondaryEmailAddress = up.SecondaryEmailAddress;
+
+                uprofile.PhoneNumber_CountryCode = up.PhoneNumber_CountryCode;
+
+                uprofile.PhoneNumber = up.PhoneNumber;
+
+                if (up.ProfilePictureFile != null)
+                {
+                    string FileName = Path.GetFileNameWithoutExtension(up.ProfilePictureFile.FileName);
+
+                    string FileExtension = Path.GetExtension(up.ProfilePictureFile.FileName);
+
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + FileName.Trim() + FileExtension;
+
+                    uprofile.ProfilePicture = FileName;
+
+                    FileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + FileName);
+
+                    up.ProfilePictureFile.SaveAs(FileName);
+                }
+
+                uprofile.AddressLine1 = up.AddressLine1;
+
+                uprofile.AddressLine2 = up.AddressLine2;
+
+                uprofile.City = up.City;
+
+                uprofile.State = up.State;
+
+                uprofile.ZipCode = up.ZipCode;
+
+                uprofile.Country = up.Country;
+
+                uprofile.University = up.University;
+
+                uprofile.College = up.College;
+
+                uprofile.CreatedDate = DateTime.Now;
+
+                db.UserProfiles.Add(uprofile);
+                db.SaveChanges();
+
+            }
+
+            return RedirectToAction("Dashboard");
+        }  
+    
+
+        [HttpGet]
+        public ActionResult NoteDetails(string noteid)
+        {
+            using(NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                SellerNote sn = db.SellerNotes.FirstOrDefault(m => m.ID.ToString().Equals(noteid));
+                if(sn!=null)
+                {
+                    ViewBag.Category = db.NoteCategories.Where(m => m.ID == sn.Category).FirstOrDefault().Name;
+                    ViewBag.Country = db.Countries.Where(m => m.ID == sn.Country).FirstOrDefault().Name;
+                    return View(sn);
+                }
+                else
+                {
+                    return HttpNotFound();
+                }
+            }
+        }
+
+        public FileResult Download(String path)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path);
+            string fileName = path;
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+        public ActionResult FreeNotes(string noteid)
+        {
+            using(NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                bool isexist = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp);
+
+                var note = db.SellerNotes.FirstOrDefault(m => m.ID.ToString().Equals(noteid));
+
+                if (!isexist)
+                {
+                    Download download = new Download();
+                    download.NoteID = Convert.ToInt32(noteid);
+                    download.Seller = temp;
+                    download.NoteTitle = note.Title;
+                    download.PurchasedPrice = note.SellingPrice;
+                    download.Downloader = temp;
+                    download.IsSellerHasAllowedDownload = true;
+                    download.IsAttachedDownloaded = true;
+                    download.NoteCategory = note.NoteCategory.Name;
+                    db.Downloads.Add(download);
+                    db.SaveChanges();
+                }
+                var path = note.SellerNotesAttachements.FirstOrDefault(m => m.NoteID.ToString().Equals(noteid)).FilePath;
+                return RedirectToAction("Download", "RegisteredUsers", new {path=path});
+            }
+            return RedirectToAction("NoteDetails",noteid);
+        }
+
+        public ActionResult PaidNotes(string noteid)
+        {
+            using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
+            {
+                bool isexist = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp);
+
+                var note = db.SellerNotes.FirstOrDefault(m => m.ID.ToString().Equals(noteid));
+
+                if (!isexist)
+                {
+                    Download download = new Download();
+                    download.NoteID = Convert.ToInt32(noteid);
+                    download.Seller = temp;
+                    download.NoteTitle = note.Title;
+                    download.PurchasedPrice = note.SellingPrice;
+                    download.Downloader = temp;
+                    download.IsSellerHasAllowedDownload = false;
+                    download.IsAttachedDownloaded = true;
+                    download.NoteCategory = note.NoteCategory.Name;
+                    db.Downloads.Add(download);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    bool isvalid = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp && m.IsSellerHasAllowedDownload);
+                    if (isvalid)
+                    {
+                        var path = note.SellerNotesAttachements.FirstOrDefault(m => m.NoteID.ToString().Equals(noteid)).FilePath;
+                        return RedirectToAction("Download", "RegisteredUsers", new { path = path });
+                    }
+                }
+            }
+            return RedirectToAction("NoteDetails", noteid);
+        }
+
+        public ActionResult MyDownloads()
+        {
+            return View();
+        }
+
+
+
     }
+
 }

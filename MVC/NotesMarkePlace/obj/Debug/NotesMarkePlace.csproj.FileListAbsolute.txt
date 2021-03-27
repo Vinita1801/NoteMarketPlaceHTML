@@ -76,7 +76,6 @@ C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\System.Web.WebPa
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\Newtonsoft.Json.xml
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\Antlr3.Runtime.pdb
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\obj\Debug\NotesMarkePlace.csprojAssemblyReference.cache
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\obj\Debug\NotesMarkePlace.csproj.CoreCompileInputs.cache
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\obj\Debug\NotesMarkePlace.csproj.CopyComplete
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\obj\Debug\NotesMarkePlace.dll
@@ -85,3 +84,8 @@ C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\Castle.Core.dll
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\FakeItEasy.dll
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\Castle.Core.xml
 C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\FakeItEasy.xml
+C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\PagedList.dll
+C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\PagedList.Mvc.dll
+C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\PagedList.xml
+C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\bin\PagedList.Mvc.xml
+C:\Users\panka\source\repos\NotesMarkePlace\NotesMarkePlace\obj\Debug\NotesMarkePlace.csprojAssemblyReference.cache
