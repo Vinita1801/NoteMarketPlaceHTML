@@ -18,6 +18,12 @@ namespace NotesMarkePlace
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "RegisteredUsers", action = "signup", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Admin",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Admin", action = "login", id = UrlParameter.Optional }
+            );
         }
     }
 }

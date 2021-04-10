@@ -14,6 +14,13 @@ namespace NotesMarkePlace.Models
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.UserProfiles = new HashSet<UserProfile>();
+            this.SellerNotes = new HashSet<SellerNote>();
+        }
+    
         public int Id { get; set; }
         public int RoleID { get; set; }
         public string FirstName { get; set; }
@@ -29,5 +36,9 @@ namespace NotesMarkePlace.Models
         public System.Guid ActivationCode { get; set; }
     
         public virtual UserRole UserRole { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SellerNote> SellerNotes { get; set; }
     }
 }

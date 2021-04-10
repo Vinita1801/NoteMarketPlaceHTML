@@ -22,7 +22,7 @@ namespace NotesMarkePlace.Models
         public string PhoneNumber_CountryCode { get; set; }
         public string PhoneNumber { get; set; }
         public string ProfilePicture { get; set; }
-        public byte[] AddressLine1 { get; set; }
+        public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -36,5 +36,6 @@ namespace NotesMarkePlace.Models
         public Nullable<int> ModifiedBy { get; set; }
     
         public virtual ReferenceData ReferenceData { get; set; }
+        public virtual User User { get; set; }
     }
 }

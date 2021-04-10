@@ -101,6 +101,13 @@ hr {
     border: 1px solid #fff;
 }
 
+.btn btn-blue {
+    color: #fff;
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    font-size: 16px;
+}
+
 .btn-blue {
 	color: #fff;
 	border: 1px solid #6255a5;
@@ -464,13 +471,19 @@ ul.navbar-nav > li > a:focus {
     
 }
 
-.white-nav-top ul.navbar-nav > li > a {
-    font-family: "Open Sans";
-	color: #333333;
-    font-size: 16px;
-    font-weight: bold(600);
-	line-height: 20px;
+#login-btn {
+    color: #fff;
 }
+
+
+
+.white-nav-top ul.navbar-nav > li > a {
+        font-family: "Open Sans";
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold(600);
+        line-height: 20px;
+    }
 
 .white-nav-top ul.navbar-nav > li > a:hover,
 .white-nav-top ul.navbar-nav > li > a:focus {
@@ -2141,7 +2154,8 @@ table.table-published-notes tr:hover{
 div.dropdown-item:hover {
     background-color: #6255a5;
     color: #fff;
-    height: 35px;
+    height: auto;
+    width: auto;
     padding: 5px 20px;
 }
 
@@ -2531,8 +2545,8 @@ table.table-buyer-requests tr:hover {
 }
 
 .dropdown-buyer-requests {
-    height: 70px;
-    width: 168px;
+    height: auto;
+    width: auto;
     padding: 25px 12px;
     font-family: "Open Sans";
     font-size: 15px;
@@ -2726,8 +2740,8 @@ table.table-published-notes-admin tr:hover{
 }
 
 .dashboard-admin-notes {
-    height: 200px;
-    width: 220px;
+    height: auto;
+    width: 300px;
     text-align: left;
     padding: 10px 25px;
 }
@@ -3526,6 +3540,7 @@ table.table-members-details tr:hover{
     line-height: 20px;
     border: none;
     z-index: 2;
+    display: inline-flex;
 }
 
 
@@ -3542,4 +3557,8 @@ table.table-members-details tr:hover{
     color: #6255a5;
     cursor: pointer;
     z-index: 2;
+}
+
+#sellerid {
+    width: auto;
 }

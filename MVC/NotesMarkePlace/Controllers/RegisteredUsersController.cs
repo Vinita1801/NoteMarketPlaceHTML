@@ -28,7 +28,15 @@ namespace NotesMarkePlace.Controllers
         [HttpGet]
         public ActionResult login()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return RedirectToAction("index", new RouteValueDictionary(new { Controller = "RegisteredUsers", Action = "index" }));
+            }
+            else
+            {
+                return View();
+            }
+           
         }
 
         // POST : Login
@@ -40,7 +48,7 @@ namespace NotesMarkePlace.Controllers
             using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
             {
                 User v = db.Users.Where(a => a.EmailID == user.EmailID).FirstOrDefault();
-                Session["UserId"] = v.Id;
+                
                 if (v != null)
                 {
                     if (!v.IsEmailVerified)
@@ -57,15 +65,17 @@ namespace NotesMarkePlace.Controllers
                         cookie.Expires = DateTime.Now.AddMinutes(timeout);
                         cookie.HttpOnly = true;
                         Response.Cookies.Add(cookie);
-                        temp = user.Id;
                         
+                        Session["EmailID"] = user.EmailID;
+                        Session["ID"] = v.Id;
+                        var id = Session["ID"];
                         if (Url.IsLocalUrl(ReturnUrl))
                         {
                             return Redirect(ReturnUrl);
                         }
                         else
                         {
-                            return RedirectToAction("index", new RouteValueDictionary(new { Controller = "RegisteredUsers", Action = "index" }));
+                            return RedirectToAction("BuyerRequests","RegisteredUsers",new { Id=id});
                         }
                     }
                     else
@@ -192,6 +202,8 @@ namespace NotesMarkePlace.Controllers
                 body = "<br/><br/> Hello, <br/><br/> We have generated a  new password for you <br/> Password:" + activationCode;
             }
 
+            
+
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -269,8 +281,9 @@ namespace NotesMarkePlace.Controllers
         //GET : Index
 
         [HttpGet]
-        public ActionResult index()
+        public ActionResult index(string username,int Id)
         {
+            ViewBag.username = username;
             return View();
         }
 
@@ -497,9 +510,6 @@ namespace NotesMarkePlace.Controllers
                 db.SaveChanges();
                 
 
-              //  db.SellerNotesAttachements.Add(sellernotesattachment);
-               // db.SaveChanges();
-
             }
 
             return RedirectToAction("addNote");
@@ -556,10 +566,100 @@ namespace NotesMarkePlace.Controllers
         }
 
         [HttpGet]
-        public ActionResult BuyerRequests()
+        public ActionResult BuyerRequests(int? i,string search)
         {
-            return View();
+            var userid = (int)Session["ID"];
+            var emailid = Session["EmailId"];
+
+            if (emailid != null)
+            {
+                NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1();
+                List<Download> BuyerReq = db.Downloads.Where(e=>e.Seller == userid).ToList();
+
+                if (!String.IsNullOrEmpty(search))
+                {
+                    BuyerReq = BuyerReq.Where(e => e.NoteTitle.ToLower().Contains(search.ToLower())).ToList();
+                    if (BuyerReq == null)
+                    {
+                        BuyerReq = BuyerReq.Where(e => e.NoteCategory.ToLower().Contains(search.ToLower())).ToList();
+                    }
+                }
+                return View(BuyerReq.ToPagedList(i ?? 1, 10));
+            }
+            else
+            {
+                return HttpNotFound();
+            }               
         }
+
+       
+        public ActionResult AllowDownload(int? i,string reqid)
+        {
+            var userid = (int)Session["ID"];
+            var emailid = Session["EmailId"];
+
+            NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1();
+
+            List<Download> BuyerReq = db.Downloads.Where(e => e.Seller == userid && e.Downloader.ToString() == reqid).ToList();
+
+            if (reqid != null)
+            {
+                Download download = db.Downloads.FirstOrDefault(e => e.ID.ToString() == reqid);
+
+                if (download != null)
+                {
+                    download.IsSellerHasAllowedDownload = true;
+                    db.SaveChanges();
+                    User user = db.Users.Where(e => e.Id == download.Seller).FirstOrDefault();
+                    User downloader = db.Users.Where(e => e.Id == download.Downloader).FirstOrDefault();
+
+                    var verifyUrl = "/RegisteredUsers/BuyerRequests/";
+                    var link = "https://localhost:44379/" + verifyUrl;
+
+                    var fromEmail = new MailAddress("notesmarketplacesrs@gmail.com", "Notes MarkePlace");
+                    var toEmail = new MailAddress(user.EmailID);
+                    var fromEmailPassword = "NotesMP@123"; // Replace with actual password
+
+                    string subject = user.FirstName + " " + user.LastName + " Allows you to download a note";
+
+                    
+
+                    string body = "Hello, "+ downloader.FirstName + " " + downloader.LastName  +" \n\nwe would like to inform you that," + user.FirstName + " " + user.LastName + "  Allows you to download a note. \nplease login and see My Download tabs to download particular note.\n\nRegards,\nNotes Marketplace";
+
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+                    };
+
+                    using (var message = new MailMessage(fromEmail, toEmail)
+                    {
+                        Subject = subject,
+                        Body = body,
+                        IsBodyHtml = true
+
+                    })
+                    smtp.Send(message);
+
+
+                    return RedirectToAction("BuyerRequests","RegisteredUsers");
+
+                }
+                else
+                {
+                    return HttpNotFound();
+                }
+                
+            }
+
+            return RedirectToAction("login", "RegisteredUsers");
+        }
+              
 
         [HttpGet]
         public ActionResult FAQ()
@@ -582,7 +682,7 @@ namespace NotesMarkePlace.Controllers
             int uid = Convert.ToInt32(Session["UserId"]);
             using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
             {
-                User user = db.Users.Find(uid);
+                User user = db.Users.Where(m => m.Id == uid).FirstOrDefault();
                 
                 if (ModelState.IsValid)
                 {
@@ -623,7 +723,7 @@ namespace NotesMarkePlace.Controllers
             {
                 UserProfile uprofile = new UserProfile();
 
-                uprofile.UserID = 1;
+                uprofile.UserID = 2;
 
                 uprofile.DOB = up.DOB;
 
@@ -685,6 +785,11 @@ namespace NotesMarkePlace.Controllers
                 SellerNote sn = db.SellerNotes.FirstOrDefault(m => m.ID.ToString().Equals(noteid));
                 if(sn!=null)
                 {
+                    bool isvalid = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp && m.IsSellerHasAllowedDownload);
+                    if(isvalid)
+                    {
+                        ViewBag.valid = "true";
+                    }
                     ViewBag.Category = db.NoteCategories.Where(m => m.ID == sn.Category).FirstOrDefault().Name;
                     ViewBag.Country = db.Countries.Where(m => m.ID == sn.Country).FirstOrDefault().Name;
                     return View(sn);
@@ -722,6 +827,7 @@ namespace NotesMarkePlace.Controllers
                     download.IsSellerHasAllowedDownload = true;
                     download.IsAttachedDownloaded = true;
                     download.NoteCategory = note.NoteCategory.Name;
+                    download.CreatedDate = DateTime.Now;
                     db.Downloads.Add(download);
                     db.SaveChanges();
                 }
@@ -736,7 +842,7 @@ namespace NotesMarkePlace.Controllers
             using (NotesMarketPlaceEntities1 db = new NotesMarketPlaceEntities1())
             {
                 bool isexist = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp);
-
+                bool isvalid = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp && m.IsSellerHasAllowedDownload);
                 var note = db.SellerNotes.FirstOrDefault(m => m.ID.ToString().Equals(noteid));
 
                 if (!isexist)
@@ -750,14 +856,16 @@ namespace NotesMarkePlace.Controllers
                     download.IsSellerHasAllowedDownload = false;
                     download.IsAttachedDownloaded = true;
                     download.NoteCategory = note.NoteCategory.Name;
+                    download.CreatedDate = DateTime.Now;
                     db.Downloads.Add(download);
                     db.SaveChanges();
                 }
                 else
                 {
-                    bool isvalid = db.Downloads.Any(m => m.NoteID.ToString().Equals(noteid) && m.Seller == temp && m.IsSellerHasAllowedDownload);
+                    
                     if (isvalid)
                     {
+                        
                         var path = note.SellerNotesAttachements.FirstOrDefault(m => m.NoteID.ToString().Equals(noteid)).FilePath;
                         return RedirectToAction("Download", "RegisteredUsers", new { path = path });
                     }

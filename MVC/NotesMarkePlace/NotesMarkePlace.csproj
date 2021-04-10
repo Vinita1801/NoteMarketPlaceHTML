@@ -140,6 +140,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisteredUsersController.cs" />
     <Compile Include="Crypto.cs" />
@@ -155,6 +156,7 @@
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddNote.cs" />
+    <Compile Include="Models\DownloadRequests.cs" />
     <Compile Include="Models\Extended\User.cs" />
     <Compile Include="Models\Extended\userprofile.cs" />
     <Compile Include="Models\Models.Context.cs">
@@ -195,6 +197,7 @@
     <Compile Include="Models\SellerNotesReview.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Seller_Id_Name.cs" />
     <Compile Include="Models\SystemConfiguration.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
@@ -356,6 +359,27 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\RegisteredUsers\addNote.cshtml" />
     <Content Include="Views\RegisteredUsers\changePassword.cshtml" />
+    <Content Include="Views\Admin\AddAdministrator.cshtml" />
+    <Content Include="Views\Admin\AddCategory.cshtml" />
+    <Content Include="Views\Admin\AddCountry.cshtml" />
+    <Content Include="Views\Admin\AddType.cshtml" />
+    <Content Include="Views\Admin\DashboardAdmin.cshtml" />
+    <Content Include="Views\Admin\DownloadedNotes.cshtml" />
+    <Content Include="Views\Admin\forgotPassword.cshtml" />
+    <Content Include="Views\Admin\login.cshtml" />
+    <Content Include="Views\Admin\ManageAdministrator.cshtml" />
+    <Content Include="Views\Admin\ManageCategory.cshtml" />
+    <Content Include="Views\Admin\ManageCountry.cshtml" />
+    <Content Include="Views\Admin\ManageType.cshtml" />
+    <Content Include="Views\Admin\Member.cshtml" />
+    <Content Include="Views\Admin\MemberDetails.cshtml" />
+    <Content Include="Views\Admin\MyProfile.cshtml" />
+    <Content Include="Views\Admin\NoteDetails.cshtml" />
+    <Content Include="Views\Admin\NotesUnderReview.cshtml" />
+    <Content Include="Views\Admin\PublishedNotes.cshtml" />
+    <Content Include="Views\Admin\RejectedNotesAdmin.cshtml" />
+    <Content Include="Views\Admin\SpamReports.cshtml" />
+    <Content Include="Views\Admin\SystemConfiguration.cshtml" />
     <None Include="Views\RegisteredUsers\EmailVerification.cshtml" />
     <Content Include="Views\RegisteredUsers\FAQ.cshtml" />
     <None Include="Views\RegisteredUsers\forgotPassword.cshtml" />
@@ -381,10 +405,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RegisteredUsers\UserProfile.cshtml" />
+    <Content Include="Views\Shared\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

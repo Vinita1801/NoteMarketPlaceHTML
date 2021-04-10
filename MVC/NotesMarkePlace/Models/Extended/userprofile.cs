@@ -24,7 +24,7 @@ namespace NotesMarkePlace.Models
         public Nullable<int> Gender { get; set; }
         public string SecondaryEmailAddress { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Country Code required")]
+       
         public string PhoneNumber_CountryCode { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number required")]
@@ -34,7 +34,7 @@ namespace NotesMarkePlace.Models
         public HttpPostedFileBase ProfilePictureFile { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "AddressLine1 required")]
-        public byte[] AddressLine1 { get; set; }
+        public string AddressLine1 { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "AddressLine2 required")]
         public string AddressLine2 { get; set; }

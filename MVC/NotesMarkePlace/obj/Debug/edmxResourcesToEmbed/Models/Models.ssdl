@@ -17,7 +17,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NoteID" Type="int" Nullable="false" />
     <Property Name="Seller" Type="int" Nullable="false" />
     <Property Name="Downloader" Type="int" Nullable="false" />
@@ -64,7 +64,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Value" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Datavalue" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="RefCategory" Type="varchar" MaxLength="100" Nullable="false" />
@@ -122,7 +122,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NoteID" Type="int" Nullable="false" />
     <Property Name="ReportedByID" Type="int" Nullable="false" />
     <Property Name="AgainstDownloadID" Type="int" Nullable="false" />
@@ -136,7 +136,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NoteID" Type="int" Nullable="false" />
     <Property Name="ReviewedByID" Type="int" Nullable="false" />
     <Property Name="AgainstDownloadsID" Type="int" Nullable="false" />
@@ -170,10 +170,10 @@
     <Property Name="DOB" Type="datetime" />
     <Property Name="Gender" Type="int" />
     <Property Name="SecondaryEmailAddress" Type="varchar" MaxLength="100" />
-    <Property Name="PhoneNumber_CountryCode" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PhoneNumber_CountryCode" Type="varchar" MaxLength="5" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
     <Property Name="ProfilePicture" Type="varchar" MaxLength="500" />
-    <Property Name="AddressLine1" Type="varbinary" MaxLength="100" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="AddressLine2" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
@@ -277,6 +277,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SellerNotes_Users_SellerId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="SellerNotes" Type="Self.SellerNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SellerNotes">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SellerNotesAttachements_SellerNotes_NoteID">
     <End Role="SellerNotes" Type="Self.SellerNotes" Multiplicity="1" />
     <End Role="SellerNotesAttachements" Type="Self.SellerNotesAttachements" Multiplicity="*" />
@@ -337,7 +349,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserProfile_ReferenceData_Gender">
+  <Association Name="FK_UserProfile_Gender">
     <End Role="ReferenceData" Type="Self.ReferenceData" Multiplicity="0..1" />
     <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -346,6 +358,18 @@
       </Principal>
       <Dependent Role="UserProfile">
         <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_UserID">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -383,6 +407,10 @@
       <End Role="ReferenceData" EntitySet="ReferenceData" />
       <End Role="SellerNotes" EntitySet="SellerNotes" />
     </AssociationSet>
+    <AssociationSet Name="FK_SellerNotes_Users_SellerId" Association="Self.FK_SellerNotes_Users_SellerId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SellerNotes" EntitySet="SellerNotes" />
+    </AssociationSet>
     <AssociationSet Name="FK_SellerNotesAttachements_SellerNotes_NoteID" Association="Self.FK_SellerNotesAttachements_SellerNotes_NoteID">
       <End Role="SellerNotes" EntitySet="SellerNotes" />
       <End Role="SellerNotesAttachements" EntitySet="SellerNotesAttachements" />
@@ -403,8 +431,12 @@
       <End Role="SellerNotes" EntitySet="SellerNotes" />
       <End Role="SellerNotesReviews" EntitySet="SellerNotesReviews" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserProfile_ReferenceData_Gender" Association="Self.FK_UserProfile_ReferenceData_Gender">
+    <AssociationSet Name="FK_UserProfile_Gender" Association="Self.FK_UserProfile_Gender">
       <End Role="ReferenceData" EntitySet="ReferenceData" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_UserID" Association="Self.FK_UserProfile_UserID">
+      <End Role="Users" EntitySet="Users" />
       <End Role="UserProfile" EntitySet="UserProfile" />
     </AssociationSet>
   </EntityContainer>

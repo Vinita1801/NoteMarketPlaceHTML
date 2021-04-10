@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Manage Country";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+    <!-- Manage Country Notes -->
+    <section id="published-notes">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" id="dashboardadmin-heading">
+                        <h2>Manage Country</h2>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <a class="btn btn-admin-addadministrator" href="#" title="Add Administrator" role="button">Add Country</a>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <input type="text" class="form-control admin-search-textbox" placeholder="Search">
+                        <img src="~/images/Dashboard/search-icon.svg" alter="search-icon" id="admin-search-icon">
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a class="btn btn-manageadmin-search" href="#" title="Search" role="button">Search</a>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <table class="table table-bordless table-published-notes-admin text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">Country Name</th>
+                                    <th scope="col">Country Code</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col">Added By</th>
+                                    <th scope="col">Active</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>IT</td>
+                                    <td>Lorem Ipsum is simply dummy text</td>
+                                    <td>09-10-2020, 10:10</td>
+                                    <td>Khayati Patel</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <img src="~/images/DashboardAdmin/edit.png" alt="edit" title="edit">&nbsp;&nbsp;
+                                        <img src="~/images/DashboardAdmin/delete.png" alt="delete" title="delete">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Computer</td>
+                                    <td>Lorem Ipsum is simply dummy text</td>
+                                    <td>10-10-2020, 12:30</td>
+                                    <td>Rahu Shah</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <img src="~/images/DashboardAdmin/edit.png" alt="edit" title="edit">&nbsp;&nbsp;
+                                        <img src="~/images/DashboardAdmin/delete.png" alt="delete" title="delete">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Science</td>
+                                    <td>Lorem Ipsum is simply dummy text</td>
+                                    <td>11-10-2020, 01:00</td>
+                                    <td>Suman Trivedi</td>
+                                    <td>No</td>
+                                    <td>
+                                        <img src="~/images/DashboardAdmin/edit.png" alt="edit" title="edit">&nbsp;&nbsp;
+                                        <img src="~/images/DashboardAdmin/delete.png" alt="delete" title="delete">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>History</td>
+                                    <td>Lorem Ipsum is simply dummy text</td>
+                                    <td>12-10-2020, 10:10</td>
+                                    <td>Raj Malhotra</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <img src="~/images/DashboardAdmin/edit.png" alt="edit" title="edit">&nbsp;&nbsp;
+                                        <img src="~/images/DashboardAdmin/delete.png" alt="delete" title="delete">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>Account</td>
+                                    <td>Lorem Ipsum is simply dummy text</td>
+                                    <td>13-10-2020, 11:25</td>
+                                    <td>Niya Patel</td>
+                                    <td>No</td>
+                                    <td>
+                                        <img src="~/images/DashboardAdmin/edit.png" alt="edit" title="edit">&nbsp;&nbsp;
+                                        <img src="~/images/DashboardAdmin/delete.png" alt="delete" title="delete">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Manage Country Ends -->
+    <!-- Pagination-->
+    <section id="pagination">
+        <div id="page" class="text-center">
+            <div class="row ">
+                <img src="~/images/SoldNotes/left-arrow.png" alter="left-arrow" class="left-arrow">
+                <ul class="pagination pagination-lg">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                </ul>
+                <img src="~/images/SoldNotes/right-arrow.png" alter="right-arrow" class="right-arrow">
+
+            </div>
+        </div>
+    </section>
+    <!-- Pagination Ends-->
+

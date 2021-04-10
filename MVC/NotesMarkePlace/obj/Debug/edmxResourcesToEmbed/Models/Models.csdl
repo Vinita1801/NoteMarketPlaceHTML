@@ -119,6 +119,7 @@
     <NavigationProperty Name="SellerNotesAttachements" Relationship="Self.FK_SellerNotesAttachements_SellerNotes_NoteID" FromRole="SellerNotes" ToRole="SellerNotesAttachements" />
     <NavigationProperty Name="SellerNotesReportedIssues" Relationship="Self.FK_SellerNotesReportedIssues_SellerNotes_NoteID" FromRole="SellerNotes" ToRole="SellerNotesReportedIssues" />
     <NavigationProperty Name="SellerNotesReviews" Relationship="Self.FK_SellerNotesReviews_SellerNotes_NoteID" FromRole="SellerNotes" ToRole="SellerNotesReviews" />
+    <NavigationProperty Name="User" Relationship="NotesMarketPlaceModel.FK_SellerNotes_Users_SellerId" FromRole="SellerNote" ToRole="User" />
   </EntityType>
   <EntityType Name="SellerNotesAttachement">
     <Key>
@@ -191,10 +192,10 @@
     <Property Name="DOB" Type="DateTime" Precision="3" />
     <Property Name="Gender" Type="Int32" />
     <Property Name="SecondaryEmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNumber_CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber_CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="ProfilePicture" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="AddressLine1" Type="Binary" MaxLength="100" FixedLength="false" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -207,6 +208,7 @@
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Int32" />
     <NavigationProperty Name="ReferenceData" Relationship="Self.FK_UserProfile_ReferenceData_Gender" FromRole="UserProfile" ToRole="ReferenceData" />
+    <NavigationProperty Name="User" Relationship="NotesMarketPlaceModel.FK_UserProfile_UserID" FromRole="UserProfile" ToRole="User" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -240,6 +242,8 @@
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="UserRole" Relationship="Self.FK_Users_UserRoles_RoleID" FromRole="Users" ToRole="UserRoles" />
     <Property Name="ActivationCode" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="UserProfiles" Relationship="NotesMarketPlaceModel.FK_UserProfile_UserID" FromRole="User" ToRole="UserProfile" />
+    <NavigationProperty Name="SellerNotes" Relationship="NotesMarketPlaceModel.FK_SellerNotes_Users_SellerId" FromRole="User" ToRole="SellerNote" />
   </EntityType>
   <Association Name="FK_SellerNotes_Countries_Country">
     <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
@@ -447,5 +451,37 @@
       <End Role="UserRoles" EntitySet="UserRoles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_UserID" Association="NotesMarketPlaceModel.FK_UserProfile_UserID">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SellerNotes_Users_SellerId" Association="NotesMarketPlaceModel.FK_SellerNotes_Users_SellerId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SellerNote" EntitySet="SellerNotes" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_UserProfile_UserID">
+    <End Type="NotesMarketPlaceModel.User" Role="User" Multiplicity="1" />
+    <End Type="NotesMarketPlaceModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SellerNotes_Users_SellerId">
+    <End Type="NotesMarketPlaceModel.User" Role="User" Multiplicity="1" />
+    <End Type="NotesMarketPlaceModel.SellerNote" Role="SellerNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SellerNote">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

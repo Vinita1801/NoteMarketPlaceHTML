@@ -1,0 +1,231 @@
+﻿@{
+    ViewBag.Title = "Dashboard Admin";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+    <!-- Dashboard Admin -->
+    <section id="dashboardadmin">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <!-- Dashboard Heading -->
+                    <div class="col-md-12 col-sm-12" id="dashboardadmin-heading">
+                        <h2>Dashboard</h2>
+                    </div>
+
+                    <!-- Dashboard Item 01 -->
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboardadmin-item text-center">
+                            <h3>20</h3>
+                            <h6>Number of Notes In Review for Publish</h6>
+                        </div>
+                    </div>
+
+                    <!--
+                    <!-- Dashboard Item 02 -->
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboardadmin-item text-center">
+                            <h3>103</h3>
+                            <h6>Number of New Notes Downloaded <br> (Last 7 days)</h6>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Item 03 -->
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboardadmin-item text-center">
+                            <h3>223</h3>
+                            <h6>Number of New Registrations <br> (Last 7 days)</h6>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Ends -->
+    <!-- Published Notes -->
+    <section id="published-notes">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3 published-notes-heading">
+                        <h3>Published Notes</h3>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <input type="text" class="form-control search-textbox">
+                        <img src="~/images/Dashboard/search-icon.svg" alter="search-icon" id="search-icon">
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a class="btn btn-admin-search" href="#" title="Search" role="button">Search</a>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <input type="text" class="form-control month-textbox" placeholder="Select Month">
+                        <img src="~/images/Dashboard/arrow-down.png" alter="arrow-down" id="arrow-down">
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <table class="table table-bordless table-published-notes-admin text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Attachment Size</th>
+                                    <th scope="col">Sell Type</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Publisher</th>
+                                    <th scope="col">Published Date</th>
+                                    <th scope="col">Number of <br> Downloads</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="dashboardadmin-col2">Data Science</td>
+                                    <td>Science</td>
+                                    <td>10 KB</td>
+                                    <td>Free</td>
+                                    <td>$0</td>
+                                    <td>Pritesh Panchal</td>
+                                    <td>09-10-2020,10:10</td>
+                                    <td>10</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/BuyerRequests/dots.png" class="img-dot-admin" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">
+
+                                            <div class="dropdown-menu dropdown-dashboard-admin text-left">
+                                                <div class="dropdown-item" href="#">Download Note</div><br>
+                                                <div class="dropdown-item" href="#">View More Details</div><br>
+                                                <div class="dropdown-item" href="#">Unpublish</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td class="dashboardadmin-col2">Accounts</td>
+                                    <td>Commerce</td>
+                                    <td>23 MB</td>
+                                    <td>Paid</td>
+                                    <td>$22</td>
+                                    <td>Rahil Shah</td>
+                                    <td>10-10-2020,12:30</td>
+                                    <td>21</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/BuyerRequests/dots.png" class="img-dot-admin" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">
+
+
+                                            <div class="dropdown-menu dropdown-dashboard-admin text-left">
+                                                <div class="dropdown-item" href="#">Download Note</div><br>
+                                                <div class="dropdown-item" href="#">View More Details</div><br>
+                                                <div class="dropdown-item" href="#">Unpublish</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td class="dashboardadmin-col2">Social Studies</td>
+                                    <td>Social</td>
+                                    <td>3 MB</td>
+                                    <td>Paid</td>
+                                    <td>$56</td>
+                                    <td>Anish Patel</td>
+                                    <td>11-10-2020,12:30</td>
+                                    <td>13</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/BuyerRequests/dots.png" class="img-dot-admin" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">
+
+                                            <div class="dropdown-menu dropdown-dashboard-admin text-left">
+                                                <div class="dropdown-item" href="#">Download Note</div><br>
+                                                <div class="dropdown-item" href="#">View More Details</div><br>
+                                                <div class="dropdown-item" href="#">Unpublish</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td class="dashboardadmin-col2">AI</td>
+                                    <td>IT</td>
+                                    <td>1 MB</td>
+                                    <td>Free</td>
+                                    <td>$0</td>
+                                    <td>Vijay Vaishnav</td>
+                                    <td>12-10-2020,12:30</td>
+                                    <td>34</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/BuyerRequests/dots.png" class="img-dot-admin" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">
+
+                                            <div class="dropdown-menu dropdown-dashboard-admin text-left">
+                                                <div class="dropdown-item" href="#">Download Note</div><br>
+                                                <div class="dropdown-item" href="#">View More Details</div><br>
+                                                <div class="dropdown-item" href="#">Unpublish</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td class="dashboardadmin-col2">Lorem ipsum</td>
+                                    <td>IT</td>
+                                    <td>105 KB</td>
+                                    <td>Paid</td>
+                                    <td>$90</td>
+                                    <td>Mehul Patel</td>
+                                    <td>13-10-2020,12:30</td>
+                                    <td>9</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/BuyerRequests/dots.png" class="img-dot-admin" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">
+
+                                            <div class="dropdown-menu dropdown-dashboard-admin text-left">
+                                                <div class="dropdown-item" href="#">Download Note</div><br>
+                                                <div class="dropdown-item" href="#">View More Details</div><br>
+                                                <div class="dropdown-item" href="#">Unpublish</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Published Notes Ends -->
+    <!-- Pagination-->
+    <section id="pagination">
+        <div id="page" class="text-center">
+            <div class="row ">
+                <img src="~/images/SoldNotes/left-arrow.png" alter="left-arrow" class="left-arrow">
+                <ul class="pagination pagination-lg">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                </ul>
+                <img src="~/images/SoldNotes/right-arrow.png" alter="right-arrow" class="right-arrow">
+
+            </div><hr>
+        </div>
+    </section>
+    <!-- Pagination Ends-->
+   
