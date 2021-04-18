@@ -1,0 +1,232 @@
+﻿@model NotesMarkePlace.Models.userprofile
+
+@{
+    IEnumerable<NotesMarkePlace.Models.ReferenceData> gender = ViewData["Gender"] as IEnumerable<NotesMarkePlace.Models.ReferenceData>;
+
+}
+
+@{
+    ViewBag.Title = "User Profile";
+    Layout = "~/Views/Shared/RegisteredUsers.cshtml";
+}
+
+
+<!-- User Profile Heading -->
+<section id="Contact-Us">
+    <img src="../images/ContactUs/banner-with-overlay.jpg" alt="banner" class="img-responsive search">
+    <div id="faq-content">
+        <div class="container text-center" id="faq-content-inner">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="page-heading ">
+                        <h1>User Profile</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- User Profile Heading Ends -->
+<!-- Basic profile Details -->
+<section id="basic-user-details">
+    <div class="content-box-md">
+        <div class="container">
+
+            <!-- Basic profile Details  -->
+            <div class="sub-heading member-details">
+                <h4>Basic Profile Details</h4>
+            </div>
+
+
+            @using (Html.BeginForm("UserProfile", "RegisteredUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="details">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.FirstName, "First Name *")
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your first name", @required = true } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.LastName, "Last Name *")
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your last name", @required = true } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.EmailId, "Email *")
+                                @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your email address", @required = true } })
+                                @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.DOB, "Date of Birth")
+                                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your date of birth", @name = "dob", @id = "dob" } })
+                                <span class="field-icon">
+                                    <img src="~/images/UserProfile/calendar.png" onclick="setDatePicker(this)">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.Gender, "Gender")
+                                <select class="form-control" name="gender" id="gender">
+                                    <option value="">Select your gender</option>
+                                    @foreach (NotesMarkePlace.Models.ReferenceData a in gender)
+                                    {
+                                        <option value="@a.Value">@a.Value</option>
+                                    }
+                                </select>
+                                <script>
+                                        $("#gender").val("@Request.QueryString["gender"]");
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group text-left ">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    @Html.LabelFor(m => m.PhoneNumber_CountryCode, "Phone Number")
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <select class="form-control phonecode">
+                                        <option>+91</option>
+                                        <option>+635</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9 tel">
+                                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your phone number", @type = "tel", @id = "phone-no-input", @name = "phone" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12 upload-profile-picture profile-form user-profile-form">
+                                <h5 class="profile-pic-heading">Profile Picture</h5>
+                                <div class="form-group upload-profile-picture">
+                                    @Html.TextBoxFor(m => m.ProfilePictureFile, new { @class = "form-control", @type = "file" })
+
+
+                                </div>
+
+                                <div class="uploadmypic">
+                                    <img src="~/images/MyProfileAdmin/upload-file.png">
+                                    <h6>Upload a picture</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Address Details -->
+                <div class="sub-heading member-details">
+                    <h4>Address Details</h4>
+                </div>
+
+                <div class="details">
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.AddressLine2, "Address Line 1 *")
+                                @Html.EditorFor(model => model.AddressLine1, new { htmlAttributes = new { @class = "form-control", @name = "address-line1", @placeholder = "Enter your address" } })
+                                @Html.ValidationMessageFor(model => model.AddressLine1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.AddressLine2, "Address Line 2 *")
+                                @Html.EditorFor(model => model.AddressLine2, new { htmlAttributes = new { @class = "form-control", @name = "address-line2", @placeholder = "Enter your address" } })
+                                @Html.ValidationMessageFor(model => model.AddressLine2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.City, "City *")
+                                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @name = "city", @placeholder = "Enter your city" } })
+                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.State, "State *")
+                                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control", @name = "state", @placeholder = "Enter your state" } })
+                                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.ZipCode, "Zip Code *")
+                                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @name = "zipcode", @placeholder = "Enter your zipcode" } })
+                                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.Country, "Country *")
+                                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @name = "country", @placeholder = "Enter your country" } })
+                                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- University and College Information -->
+                <div class="sub-heading member-details">
+                    <h4>University and College Information</h4>
+                </div>
+
+                <div class="details">
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.University, "University")
+                                @Html.EditorFor(model => model.University, new { htmlAttributes = new { @class = "form-control", @name = "university", @placeholder = "Enter your university" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-left">
+                                @Html.LabelFor(m => m.College, "College")
+                                @Html.EditorFor(model => model.College, new { htmlAttributes = new { @class = "form-control", @name = "college", @placeholder = "Enter your college" } })
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <button class="btn btn-sell" type="submit">Submit</button>
+                <!--<a id="btn-submit-admin" class="btn btn-blue" href="#" title="Submit" role="button">Submit</a>-->
+            }
+        </div><hr>
+    </div>
+</section>
+<!-- Basic book Details Ends -->

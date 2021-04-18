@@ -1,0 +1,91 @@
+﻿@model NotesMarkePlace.Models.ContactUs
+
+
+@{
+    ViewBag.Title = "Contact Us";
+    Layout = "~/Views/Shared/NonRegisteredUsers.cshtml";
+}
+<!-- Contact Us Heading -->
+<section id="Contact-Us">
+    <img src="~/images/ContactUs/banner-with-overlay.jpg" alt="banner" class="img-responsive search">
+    <div id="faq-content">
+        <div class="container text-center" id="faq-content-inner">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="page-heading ">
+                        <h1>Contact Us</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Contact Us Heading Ends -->
+<!-- Contact Us Form -->
+<section id="contact-us-form">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contact-us-heading">
+                    <h2>Get In Touch</h2>
+                    <h4>Let us know how to get back to you</h4>
+                </div>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="contact-form-left">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h5>Full Name *</h5>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @id = "name", @placeholder = "Enter your full name" } })
+                                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                </div><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <h5>Email Address *</h5>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", @id = "name", @placeholder = "Enter your email address" } })
+                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                </div><br>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <h5>Subject *</h5>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", @id = "name", @placeholder = "Enter your subject" } })
+                                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                                </div><br>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="contact-form-right">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h5>Comments / Questions *</h5>
+                            @Html.TextAreaFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control", @id = "message", @placeholder = "Message..." } })
+                            @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div id="btn-submit">
+                        <button class="btn btn-submit" type="submit" title="Submit">Submit</button>
+                    </div>
+                }
+            </div>
+        </div>
+        <hr id="hr-contact-us">
+    </div>
+</section>
+<!-- Contact Us Form Ends -->

@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Title -->
+    <title>Notes MarketPlace</title>
+
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/images/Homepage/favicon.ico">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700" rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet " href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!-- Responsive Tabs CSS -->
+    <link rel="stylesheet" href="~/Content/responsive.css">
+
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid white-nav-top">
+                <div class="site-nav-wrapper">
+                    <div class="navbar-header">
+                        <!-- Mobile Menu Open Button -->
+                        <span id="mobile-nav-open-btn">&#9776;</span>
+
+                        <!-- Logo -->
+                        <a class="navbar-brand1 smooth-scroll" href="../html/index.html">
+                            <img src="../images/Homepage/logo.png" alt="Logo">
+                        </a>
+                    </div>
+
+                    <!-- Main Menu -->
+                    <div class="container ">
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav pull-right">
+                                <li>@Html.ActionLink("Search Notes", "searchNotes", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Sell Your Notes", "Dashboard", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Buyer Requests", "BuyerRequests", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("FAQ", "FAQ", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Contact Us", "ContactUs", new { @class = "smooth-scroll" })</li>
+                                <li>
+                                    <div class="dropdown">
+                                        <img src="~/images/Dashboard/user-img.png" href="#" role="button" id="dropdownMenuLink"
+                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client" class="img-circle person-id">
+
+
+                                        <div class="dropdown-menu text-center">
+                                            <div class="dropdown-item">@Html.ActionLink("My Profile", "UserProfile", null, new { @class = "smooth-scroll" })</div>
+                                        </div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("My Downloads", "MyDownloads", null, new { @class = "smooth-scroll" })</div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("My Sold Notes", "MySoldNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("My Rejected Notes", "MyRejectedNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("Change Password", "changePassword", null, new { @class = "smooth-scroll" })</div>
+                                        <div class="dropdown-item item-logout">Logout</div>
+                                    </div>
+
+                                </li>
+                                <li>@Html.ActionLink("Logout", "login", null, new { @id = "login-btn", @class = "btn btn-blue", @title = "Logout", @role = "button" }) </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu -->
+                    <div id="mobile-nav">
+                        <!-- Mobile Menu Close Button -->
+                        <span id="mobile-nav-close-btn">&times;</span>
+
+                        <div id="mobile-nav-content">
+                            <ul class="nav">
+                                <li>@Html.ActionLink("Search Notes", "searchNotes", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Sell Your Notes", "Dashboard", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Buyer Requests", "BuyerRequests", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("FAQ", "FAQ", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Contact Us", "ContactUs", new { @class = "smooth-scroll" })</li>
+                                <li>
+                                    <div class="dropdown">
+                                        <img src="~/images/Dashboard/user-img.png" href="#" role="button" id="dropdownMenuLink"
+                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client" class="img-circle person-id">
+
+
+                                        <div class="dropdown-menu text-center">
+                                            <div class="dropdown-item">@Html.ActionLink("My Profile", "UserProfile", null, new { @class = "smooth-scroll" })</div>
+                                        </div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("My Downloads", "MyDownloads", null, new { @class = "smooth-scroll" })</div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("My Sold Notes", "MySoldNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("My Rejected Notes", "MyRejectedNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                        <div class="dropdown-item">@Html.ActionLink("Change Password", "changePassword", null, new { @class = "smooth-scroll" })</div>
+                                        <div class="dropdown-item item-logout">Logout</div>
+                                    </div>
+
+                                </li>
+                                <li>@Html.ActionLink("Logout", "login", null, new { @id = "login-btn", @class = "btn btn-blue", @title = "Logout", @role = "button" }) </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+
+    <!-- Dashboard -->
+    <section id="dashboard">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <!-- Left Side Dashboard -->
+                    <div class="col-md-6 col-sm-6 col-xs-12" id="dashboard-heading">
+                        <h2>Dashboard</h2>
+                        <table class="table table-bordered dashboard-left">
+                            <tr>
+                                <td class="text-center">
+                                    <div class="left-dashboard">
+                                        <img src="~/images/Dashboard/earning-icon.svg" alt="Earning">
+                                        <h3>My Earning</h3>
+                                    </div>
+                                </td>
+
+                                <td class="text-center col-span-2">
+                                    <div class="left-dashboard1">
+                                        <span>20</span>
+                                        <span><h6>Number of Notes Sold</h6></span>
+                                    </div>
+
+                                    <div class="left-dashboard2">
+                                        <span>$1000</span>
+                                        <span><h6>Money Earned</h6></span>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Right Side Dashboard -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <a class="btn btn-addnote" href="#" title="Add Note" role="button">Add Note</a>
+
+                        <!-- Dashboard Item 01 -->
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <div class="dashboard-item text-center">
+                                <h3>12</h3>
+                                <h6>My Downloads</h6>
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Item 02 -->
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <div class="dashboard-item text-center">
+                                <h3>5</h3>
+                                <h6>My Rejected Notes</h6>
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Item 03 -->
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <div class="dashboard-item text-center">
+                                <h3>50</h3>
+                                <h6>Buyer Requests</h6>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Ends -->
+    <!-- Progress Notes -->
+    <section id="progress-notes">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6 progress-notes-heading">
+                        <h3>In Progress Notes</h3>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <input type="text" class="form-control search-textbox" placeholder="Search">
+                        <img src="~/images/Dashboard/search-icon.svg" alter="search-icon" id="search-icon">
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-4">
+                        <a class="btn btn-search" href="#" title="Search" role="button">Search</a>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <table class="table table-bordless table-progress-notes text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Added Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09-03-2021</td>
+                                    <td>Data Science</td>
+                                    <td>Science</td>
+                                    <td>Draft</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/edit.png">
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>10-03-2021</td>
+                                    <td>Accounts</td>
+                                    <td>Commerce</td>
+                                    <td>In Review</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>11-03-2021</td>
+                                    <td>Social Studies</td>
+                                    <td>Social</td>
+                                    <td>Submitted</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>12-03-2021</td>
+                                    <td>AI</td>
+                                    <td>IT</td>
+                                    <td>Submitted</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>13-03-2021</td>
+                                    <td>Lorem ipsum dolor sit amet</td>
+                                    <td>Lorem</td>
+                                    <td>Draft</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/edit.png">
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Progress Notes Ends -->
+    <!-- Pagination-->
+    <section id="pagination">
+        <div id="page" class="text-center">
+            <div class="row ">
+                <img src="~/images/SoldNotes/left-arrow.png" alter="left-arrow" class="left-arrow">
+                <ul class="pagination pagination-lg">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item"><a class="page-link" href="#">8</a></li>
+                </ul>
+                <img src="~/images/SoldNotes/right-arrow.png" alter="right-arrow" class="right-arrow">
+
+            </div>
+        </div>
+    </section>
+    <!-- Pagination Ends-->
+    <!-- Published Notes -->
+    <section id="published-notes">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6 published-notes-heading">
+                        <h3>Published Notes</h3>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <input type="text" class="form-control search-textbox" placeholder="Search">
+                        <img src="~/images/Dashboard/search-icon.svg" alter="search-icon" id="search-icon">
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-4">
+                        <a class="btn btn-search" href="#" title="Search" role="button">Search</a>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <table class="table table-bordless table-published-notes text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Added Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09-03-2021</td>
+                                    <td>Data Science</td>
+                                    <td>Science</td>
+                                    <td>Draft</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/edit.png">
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr id="published-notes-row2">
+                                    <td>10-03-2021</td>
+                                    <td>Accounts</td>
+                                    <td>Commerce</td>
+                                    <td>In Review</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>11-10-2020</td>
+                                    <td>Social Studies</td>
+                                    <td>Social</td>
+                                    <td>Submitted</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>12-03-2021</td>
+                                    <td>AI</td>
+                                    <td>IT</td>
+                                    <td>Submitted</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>13-03-2021</td>
+                                    <td>Lorem ipsum dolor sit amet</td>
+                                    <td>Lorem</td>
+                                    <td>Draft</td>
+                                    <td>
+                                        <img src="~/images/Dashboard/edit.png">
+                                        <img src="~/images/Dashboard/eye.png">
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Published Notes Ends -->
+    <!-- Pagination-->
+    <section id="pagination2">
+        <div id="page" class="text-center">
+            <div class="row">
+                <img src="~/images/SoldNotes/left-arrow.png" alter="left-arrow" class="left-arrow dashboard-left-arrow">
+                <ul class="pagination pagination-lg">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item"><a class="page-link" href="#">8</a></li>
+                </ul>
+                <img src="~/images/SoldNotes/right-arrow.png" alter="right-arrow" class="right-arrow">
+
+
+            </div>   <hr id="hr-publishednotes">
+        </div>
+    </section>
+    <!-- Pagination Ends-->
+    <!-- Footer -->
+    <footer class="text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-8 col-sm-8 col-xs-12">
+                    <p>
+                        <br>
+                        Copyright &copy; TatvaSoft All rights reserved.
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+                    <ul class="search-social-list">
+                        <br>
+                        <li><a href="#"><img src="~/images/Homepage/facebook.png" alter="facebook"></a></li>
+                        <li><a href="#"><img src="~/images/Homepage/twitter.png" alter="twitter"></a></li>
+                        <li><a href="#"><img src="~/images/Homepage/linkedin.png" alter="linkedin"></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+    <!-- JQuery -->
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Wow JS -->
+    <script src="~/Scripts/wow.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/Scripts/script.js"></script>
+
+</body>
+
+</html>

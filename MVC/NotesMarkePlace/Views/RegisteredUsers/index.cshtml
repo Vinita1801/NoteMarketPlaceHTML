@@ -1,0 +1,237 @@
+﻿@model NotesMarkePlace.Models.User
+
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/NonRegisteredUsers.cshtml";
+}
+
+
+<!-- Home -->
+<section id="home">
+
+    <div class="content-box-lg">
+
+        <div class="cotainer">
+
+            <div class="row">
+
+                <div class="col-md-12 wow fadeIn">
+
+                    <div id="home-statement" class="text-left">
+
+                        <h4>Download Free/Paid Notes <br> or Sale your Book</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>Error hic quidem, optio eligendi dolores consequatur.</p>
+
+                    </div>
+
+                    <div id="home-btn">
+                        @Html.ActionLink("Learn More", "FAQ", null, new { @class = "btn btn-general btn-home smooth-scroll", @title = "Learn More", @role = "button" })
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+<!-- Home Ends -->
+<!-- About -->
+<section id="about">
+
+    <div class="content-box-md">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- About Left Side -->
+                <div class="col-md-6 col-sm-6 wow slideInLeft" data-wow-duration="1s">
+                    <div id="about-left">
+
+                        <div class="horizontal-heading">
+                            <h5>About <br> NotesMarketPlace</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Right Side -->
+                <div class="col-md-6 col-sm-6 wow slideInRight" data-wow-duration="1s">
+
+                    <div id="about-right">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe sint obcaecati modi quos numquam, dolore aliquid. Facilis deserunt architecto corporis accusantium ea illum fugiat expedita, quam, dolorem inventore necessitatibus non.</p> <br>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat optio, dicta cupiditate veritatis error rem tempore voluptatum veniam ex quam! Quia sapiente sint suscipit iusto, cupiditate quas aperiam quam eaque.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+<!-- About Ends -->
+<!-- Users -->
+<section id="users" class="text-center">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div id="users-heading">
+                        <div class="horizontal-heading">
+                            <h5> How it Works</h5>
+                        </div>
+                    </div>
+
+                    <div id="users-bottom">
+                        <div class="col-md-6 text-center">
+                            <div class="image img-circle text-center">
+                                <img class="circle" src="~/images/Homepage/download.png" alt="download">
+                            </div>
+                            <h3>Download Free/Paid Notes</h3>
+                            <h4>Get Material for your <br> Course etc.</h4>
+                            <div id="users-btn-downloads">
+                                @Html.ActionLink("Download", "searchNotes", null, new { @class = "btn btn-blue", @title = "Download", @role = "button" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="image img-circle">
+                                <img src="~/images/Homepage/seller.png" alter="seller" class="circle">
+                            </div>
+                            <h3>Seller</h3>
+                            <h4>Upload and Download Course <br> and Materials etc.</h4>
+                            <div id="users-btn-seller">
+                                @Html.ActionLink("Sell Book", "Dashboard", null, new { @class = "btn btn-blue", @title = "Sell Book", @role = "button" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Users Ends-->
+<!-- Customers Feedback -->
+<section id="customers-feedback">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 wow slideInLeft">
+                    <div id="users-heading">
+                        <div class="horizontal-heading text-center">
+                            <h1>What Our Customers are Saying</h1>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 01 -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="2s">
+
+                        <div class="feedback">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-6 col-xs-6">
+                                    <img src="~/images/Homepage/customer-1.png" alter="client" class="img-circle feedback-id">
+                                </div>
+
+                                <div class="col-md-10 col-sm-6 col-xs-6">
+
+                                    <div class="author-name-des">
+                                        <h4>Walter Meller</h4>
+                                        <h5>Founder & CEO, Matrix Group</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam minus, consequuntur dignissimos adipisci quis vel nihil reiciendis odit repellat sit dolorem aut praesentium corrupti commodi, totam mollitia vero."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 02 -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="2s">
+
+                        <div class="feedback">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-6 col-xs-6">
+                                    <img src="~/images/Homepage/customer-2.png" alter="client" class="img-circle feedback-id">
+                                </div>
+
+                                <div class="col-md-10 col-sm-6 col-xs-6">
+
+                                    <div class="author-name-des">
+                                        <h4>Jonnie Riley</h4>
+                                        <h5>Employee, Curious Snakcs</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam minus, consequuntur dignissimos adipisci quis vel nihil reiciendis odit repellat sit dolorem aut praesentium corrupti commodi, totam mollitia vero."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 03 -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="2s">
+
+                        <div class="feedback">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-6 col-xs-6">
+                                    <img src="~/images/Homepage/customer-3.png" alter="client" class="img-circle feedback-id">
+                                </div>
+
+                                <div class="col-md-10 col-sm-6 col-xs-6">
+
+                                    <div class="author-name-des">
+                                        <h4>Amilia Luna</h4>
+                                        <h5>Teacher,Saint Joseph High School</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam minus, consequuntur dignissimos adipisci quis vel nihil reiciendis odit repellat sit dolorem aut praesentium corrupti commodi, totam mollitia vero."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 04 -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 fadeIn" data-wow-duration="2s">
+
+                        <div class="feedback">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-6 col-xs-6">
+                                    <img src="~/images/Homepage/customer-4.png" alter="client" class="img-circle feedback-id">
+                                </div>
+
+                                <div class="col-md-10 col-sm-6 col-xs-6">
+
+                                    <div class="author-name-des">
+                                        <h4>Daniel Cardos</h4>
+                                        <h5>Software Engineer,Infinitum Company</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam minus, consequuntur dignissimos adipisci quis vel nihil reiciendis odit repellat sit dolorem aut praesentium corrupti commodi, totam mollitia vero."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> <hr>
+
+</section>
+<!-- Customers Feedback Ends -->

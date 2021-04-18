@@ -1,0 +1,157 @@
+﻿@model IPagedList<NotesMarkePlace.Models.SellerNote>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Published Notes";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+@{
+    IEnumerable<NotesMarkePlace.Models.SellerNote> sellernote = ViewData["Seller"] as IEnumerable<NotesMarkePlace.Models.SellerNote>;
+    List<String> user1 = ViewData["User"] as List<String>;
+    IEnumerable<NotesMarkePlace.Models.NoteCategory> category = ViewData["Category"] as IEnumerable<NotesMarkePlace.Models.NoteCategory>;
+}
+
+
+<!-- Published Notes -->
+<section id="published-notes">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-xs-12" id="members-heading">
+                    <h2>Published Notes</h2>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 seller-select">
+                    <h4>Seller</h4>
+                    <form>
+                        <select name="sellerid" id="sellerid" class="form-control" onchange="submit()">
+                            <option value="">Seller</option>
+                            @foreach (String user in user1)
+                            {
+                                <option value="@user">@user</option>
+
+                            }
+                        </select>
+                       
+                    </form>
+                    <script>
+                         $("#user1").val("@Request.QueryString["user1"]");
+                    </script>
+                    <br>
+                </div>
+
+                <form id="searchsubmit" action="/Admin/PublishedNotes" method="get">
+                    <div class="row">
+                        <input hidden name="sort" value="@Request.QueryString["sort"]" />
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <input type="text" class="form-control reviews-search-textbox" value="@Request.QueryString["search"]" placeholder="Search" onchange="submit()" id="search" name="search">
+                            <img src="~/images/Dashboard/search-icon.svg" alter="search-icon" id="reviews-search-icon">
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <a class="btn btn-reviews-search" href="#" title="Search" role="button">Search</a>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table class="table table-bordless table-members text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr No.</th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="Title", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Note Title</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="Category", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Category</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="SellType", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Sell Type</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="Price", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Price</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="Seller", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Seller</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="PublishedDate", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Published Date</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="ApprovedBy", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Approved By</a></th>
+                                <th scope="col"><a href="@Url.Action("PublishedNotes","Admin", new { sort="NumberofDownloads", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Number of Downloads</a></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{
+                                int index = 1;
+                                if (Request.QueryString["i"] == null || Request.QueryString["i"].Equals("1"))
+                                {
+                                    index = 1;
+                                }
+                                else
+                                {
+                                    index = (Convert.ToInt32(Request.QueryString["i"]) * 5) - 4;
+                                }
+                            }
+
+
+                            @foreach (NotesMarkePlace.Models.SellerNote n in Model)
+                            {
+
+
+                                NotesMarkePlace.Models.NotesMarketPlaceEntities1 db = new NotesMarkePlace.Models.NotesMarketPlaceEntities1();
+                                var actionby = db.Users.Where(e => e.Id == n.ActionedBy).FirstOrDefault();
+
+                                
+                                <tr>
+                                    <td>@(index++)</td>
+                                    <td class="col-highlight"><a href="@Url.Action("NoteDetails", "Admin", new {noteid=n.ID})">@n.Title</td>
+                                    <td>@n.NoteCategory.Name</td>
+                                    <td>Paid</td>
+                                    <td>@n.SellingPrice</td>
+                                    <td>
+                                        @n.User.FirstName @n.User.LastName
+                                        <img src="~/images/NotesUnderReview/eye.png" alt="eye" class="notes-reviews-eye-icon">
+                                    </td>
+                                    <td>@n.PublishedDate</td>
+                                    <td>@actionby.FirstName @actionby.LastName</td>
+                                    <td>75</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/SpamReports/dots.png" alt="edit" title="edit" class="img-dot" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">&nbsp;&nbsp;
+
+                                            <div class="dropdown-menu dropdown-my-downloads text-left">
+                                                <div class="dropdown-item" onclick="@Url.Action("DownloadedNotes","Admin",new { i = Request.QueryString["i"], reqid = n.ID.ToString() })">Download Notes</div><br>
+                                                <div class="dropdown-item" onclick="@Url.Action("NoteDetails","Admin",new { i = Request.QueryString["i"], reqid = n.ID.ToString() })">View More Details</div><br>                     
+                                                <div class="dropdown-item" href="#">Unpublish</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Manage Country Ends -->
+
+
+<!-- Pagination-->
+<section id="pagination2">
+    <div id="page" class="text-center">
+        <div class="row">
+            @Html.PagedListPager(Model, i => Url.Action("PublishedNotes", "Admin", new { i }), new PagedList.Mvc.PagedListRenderOptions
+            {
+                ContainerDivClasses = null,
+                LiElementClasses = new string[] { "page-item page-link" },
+                UlElementClasses = new string[] { "pagination pagination-lg justify-content-center" },
+                LinkToNextPageFormat = ">",
+                LinkToPreviousPageFormat = "<i class='fa fa-chevron-left left-arrow'></i>",
+                MaximumPageNumbersToDisplay = 5,
+                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+                DisplayLinkToLastPage = PagedListDisplayMode.Never
+            })
+
+        </div> <br /><br /><br /><br /> <hr>
+    </div>
+</section>
+<!-- Pagination Ends-->

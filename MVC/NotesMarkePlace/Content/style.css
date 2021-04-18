@@ -1,0 +1,3572 @@
+/*===========================
+	Default Theme
+----------------------------
+	Fonts -  Open Sans
+----------------------------
+	Colors:
+		Purple:         #6255a5
+        Gray:           #333333
+		White: 			#fff
+		Black: 			#000
+============================*/
+
+
+/*===========================
+			Html, Body
+============================*/
+html,
+body {
+	height: 100%;
+    width: 100%;
+}
+
+body {
+	color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Open Sans";
+}
+
+p {
+	font-family: "Open Sans";
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+section {
+	background: #fff;	
+}
+
+hr {
+    color: #333333;
+    margin-bottom: -20px;
+}
+
+/*===========================
+        Content Boxes
+============================*/
+.content-box-lg {
+	padding: 140px 0;
+}
+
+.content-box-md {
+	padding: 100px 0;
+}
+
+.content-box-sm {
+	padding: 90px 0;
+}
+
+
+/*===========================
+        Buttons
+============================*/
+.btn-general {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    width: 172px;
+    height: 30px;
+    padding:10px 0px 30px 0px;
+   /* -webkit-transition: all .5s;
+    transition: all .5s;*/
+    line-height: 22px;
+    border-radius: 3px;
+    font-style: Bold(600);
+    margin-bottom:0px;
+}
+
+.btn-primary {
+    width: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #6255a5;
+    border-radius: 3px;
+    border: none;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn-home {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn btn-blue {
+    color: #fff;
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    font-size: 16px;
+}
+
+.btn-blue {
+	color: #fff;
+	border: 1px solid #6255a5;
+	background-color: #6255a5;
+    font-size: 16px;
+}
+
+.white-nav-top .btn-blue {
+    margin-top: 5px;
+}
+/*===========================
+			Headings
+============================*/
+.horizontal-heading {
+	margin-bottom: 50px;
+}
+
+.horizontal-heading h5 {
+    font-family: "Open Sans";
+	font-size: 34px;
+    font-weight:bold(600);
+    line-height: 38px;
+	color:  #6255a5;
+}
+
+
+/*===========================
+			Home
+============================*/
+#home {
+    background: url(../images/Homepage/banner-with-overlay.jpg) no-repeat center;
+	background-size: cover;
+    color: #ffffff;
+    border-radius: 3px;
+    text-decoration-color: #6255a5;
+    font-style: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;  
+}
+
+#home .content-box-lg {
+	background: rgba(0, 0, 0, .3);   
+}
+
+#home-statement h4 {
+	color: #ffffff;
+	font-size: 50px;
+    font-family: "Open Sans";
+    font-weight:bold(700);
+	line-height: 54px;
+    margin-left: 170px;
+}
+
+#home-statement p {
+	color: #ffffff;
+	font-size: 20px;
+    font-family: "Open Sans";
+    font-weight: normal(400);
+    line-height: 30px;
+	margin-top: 8px; 
+    margin-left: 170px;
+}
+
+#home-btn {
+    margin-left: 170px;
+}
+
+/*===========================
+			About
+============================*/
+#about {
+    margin: 0;
+    position: relative;
+}
+
+#about-right p {
+	font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: normal(400);
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 50px;
+   
+}
+
+/*===========================
+			Users
+============================*/
+#users {
+    background-color: #f4f4f4;
+    margin-bottom: 60px;
+}
+
+
+#users-bottom {
+    padding-top: 20px;
+}
+
+.circle {
+    margin-top: 40px;
+}
+
+.image {
+    height: 140px;
+    width: 140px;
+    margin: auto;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.08); 
+}
+
+#users-bottom h3 {
+    margin-top: 30px;
+    color: #6255a5;
+    font-family: "Open Sans";
+    font-size:24px;
+    font-weight: bold(600);
+    line-height: 38px;
+}
+
+#users-bottom h4 {
+     font-family: "Open Sans";
+     font-size:18px;
+     font-weight: normal(400);
+     color:#333333;  
+}
+
+#users-btn-downloads {
+    width:172px;
+    height: 30px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-style: bold(600);
+    font-size: 18px;
+    color:#fff;
+    text-transform: uppercase;
+    margin-left: 170px;
+}
+
+#users-btn-seller {
+    width:150px;
+    height: 30px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-style: bold(600);
+    font-size: 18px;
+    color:#fff;
+    text-transform: uppercase;
+    margin-left: 200px;
+    padding-bottom: 60px;
+}
+
+/*===========================
+    Customers Feedback
+============================*/
+#users-heading {
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: bold(600);
+    line-height: 38px;
+    color: #6255a5;
+    margin-top: -70px;
+}
+
+#customers-feedback {
+	background: #fff;
+    padding-bottom: 45px;
+	overflow: visible;
+    top: -120px;
+    margin-bottom: 60px;
+}
+
+.feedback .row {
+	margin-bottom: 30px;
+}
+
+.feedback-id {
+    height: 100px;
+    width: 100px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 30px;  
+}
+
+
+#customers-feedback .feedback { 
+    border-radius: 3px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.08);
+}
+
+
+.feedback h4 {
+    font-family: "Open Sans";
+	font-size: 24px;
+    font-weight: 600;
+	line-height: 36px;
+    color: #6255a5;
+    padding: 0;
+    margin-top: 60px;
+    margin-left: 90px;
+}
+
+.feedback h5 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: #333333;
+    line-height: 15px;
+    margin-left: 90px;
+    margin-bottom: 30px;
+}
+
+.feedback p {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 400;
+	line-height: 28px;
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 40px;
+    margin-left: 40px;
+}
+
+/*===========================
+		Footer
+============================*/
+footer {
+	background: #fff;
+    margin-top: -50px;
+}
+
+footer p {
+	color: #333333;
+	line-height: 20px;
+    margin-left: 25px; 
+}
+
+.footer-notes-details {
+    margin-bottom: 100px;
+}
+
+/*===========================
+			Social Icons
+============================*/
+ul.search-social-list,
+ul.social-list {
+    margin-top: -10px;
+    margin-left: -20px;
+}
+
+ul.search-social-list li,
+ul.social-list li {
+	display: inline-block;
+}
+
+ul.search-social-list li a,
+ul.social-list li a {
+	border: 2px solid #6255a5;
+    background-color: #6255a5;
+	width: 35px;
+	height: 35px;
+	display: block;
+	line-height: 35px;
+	color: #fff;
+	border-radius: 50%;
+	-webkit-transition: all 400ms linear;
+	transition: all 400ms linear;
+}
+
+ul.social-list li img {
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-top: -5px;
+}
+
+ul.search-social-list li img {
+    margin-left: 10px;
+}
+
+ul.search-social-list li:nth-child(1) a:hover,
+ul.social-list li:nth-child(1) a:hover {
+	background: #333333;
+    border: 2px solid #333333;
+}
+
+ul.search-social-list li:nth-child(2) a:hover,
+ul.social-list li:nth-child(2) a:hover {
+	background: #00aced;
+    border: 2px solid #00aced;
+}
+
+ul.search-social-list li:nth-child(3) a:hover,
+ul.social-list li:nth-child(3) a:hover {
+	background: #3b5998;
+    border: 2px solid #3b5998;
+}
+
+/*===========================
+		Navigation
+============================*/
+.navbar {
+    padding: 25px 0 0 0;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.site-nav-wrapper {
+    padding: 0 80px 0 190px;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+ul.navbar-nav > li > a {
+    font-family: "Open Sans";
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 10px;
+    margin: 0 3px;
+}
+
+/*ul.navbar-nav {
+    margin-left: 350px;
+}*/
+
+
+ul.navbar-nav > li > a > hr {
+    color: #6255a5;
+    border: none;
+}
+
+ul.navbar-nav > li > a.btn-login {
+    color: #fff;
+    border-radius: 3px;
+    height: 40px;
+    text-align: center;
+    padding:10px 0 20px 0;
+    width: 89px;
+    background-color: #6255a5;
+    font-style: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 5px;
+}
+
+ul.navbar-nav > li > a:hover,
+ul.navbar-nav > li > a:focus {
+    background: none;
+}
+
+/* White Navigation */
+.white-nav-top {
+    background: #fff;
+    width:auto;
+    height: 80px;
+    -webkit-box-shadow:0px 8px 6px -5px rgba(0,0,0,0.08);
+    box-shadow:0px 8px 6px -5px rgba(0,0,0,0.08);
+    padding: 10px 0;
+    font-size:16px;
+    
+}
+
+#login-btn {
+    color: #fff;
+}
+
+
+
+.white-nav-top ul.navbar-nav > li > a {
+        font-family: "Open Sans";
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold(600);
+        line-height: 20px;
+    }
+
+.white-nav-top ul.navbar-nav > li > a:hover,
+.white-nav-top ul.navbar-nav > li > a:focus {
+    color: #6255a5;
+}
+.white-nav-top ul.navbar-nav>li>a:hover hr, 
+.white-nav-top ul.navbar-nav > li > a:focus hr {
+    height: 3px;
+    font-weight: 800; 
+    font-style: bold;
+    background: #6255a5;
+    color: #6255a5;
+    margin: 10px 0 0 0;
+}
+.white-nav-top ul.navbar-nav>li>a.btn-login {
+    background-color: #6255a5;
+    color: #fff;
+    margin-left: 25px;
+}
+
+/* Scroll spy active state */
+
+.white-nav-top ul.navbar-nav > li.active > a {
+    color: #6255a5; 
+    font-weight: 500;
+}
+/*===========================
+		Note Details 
+============================*/
+#notes-details {
+    margin-bottom: 110px;
+}
+
+.person-id {
+    height: 30px;
+    width: 30px;
+    margin-top: 8px;
+    margin-right: 25px;
+}
+
+.notes-details-heading h6 {
+    margin-top: 60px;
+    margin-left: -180px;
+    color: #6255a5;
+    font-size: 24px;
+    font-family: "Open Sans";
+    font-weight: bold(600);
+    line-height: 28px;
+}
+
+.notes-details-left img {
+    margin-left: -195px;
+    margin-top: 20px;
+    height: 300px;
+    width: 240px;
+}
+
+
+.notes-details-left h5,h6,p {
+    margin-left: -200px;
+}
+
+.notes-details-left h5 {
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: bold(600);
+    line-height: 38px;
+    color: #6255a5;
+}
+
+.notes-details-left h6 {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: normal(400);
+    line-height: 26px;
+    color: #333333;
+}
+
+.notes-details-left p {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: normal(400);
+    line-height: 24px;
+    color: #333333;
+}
+
+#notes-details-downloads {
+    height: 50px;
+    width: 204px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    color:#fff;
+    text-transform: uppercase;
+    margin-top: -15px;
+    margin-left: -200px;   
+}
+
+#notes-details-right {
+     margin-left: 130px;
+}
+
+
+.notes-details-right-left {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: normal(400);
+    line-height: 36px;
+    color: #333333;
+}
+
+.notes-details-right-right {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: bold(600);
+    line-height: 36px;
+    color: #6255a5;
+    text-align: right;
+}
+
+.notes-details-review {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: normal(400);
+    line-height: 18px;
+    color: #df3434;
+}
+
+#hr-notes-details {
+    margin-top: 50px;
+    margin-left: -200px;
+}
+
+.customer-review {
+    border: 1px solid #d1d1d1;
+    width: 800px;
+    height: 450px;
+    border-radius: 3px;
+    margin-left: -230px;
+}
+
+.customer-review-id {
+    height: 50px;
+    width: 50px;
+    margin-top: 30px;  
+}
+
+.customer-review-details {
+    margin-top: 20px;  
+}
+
+.hr-customer-reviews {
+  margin-left: -240px;
+  margin-right: 30px;
+}
+
+#hr-notes-customers {
+    margin-top: 50px;   
+}
+
+.heading-customer-reviews {
+    margin-left: -50px;
+}
+
+.customer-review-details h6 {
+    font-size: 20px;
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-style: bold;
+    color: #6255a5;
+    
+}
+
+.customer-review-details p {
+    font-size: 16px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-style: normal;
+    color: #333333;
+    
+}
+
+.stars {
+	font-size: 20px;
+    margin-left: -200px;
+}
+
+.rating-star-active {
+    color: #ffc700;
+}
+
+.rating-star-inactive {
+    color:antiquewhite;
+}
+
+
+
+/*===========================
+		Stars Ratings
+============================*/
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+    margin-left: -80px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+
+
+.center-block-horiz {
+   margin-left: auto !important;
+   margin-right: auto !important;
+ }
+.set-margin-cicis-menu-to-go {
+  margin: 20px;
+}
+.set-padding-cicis-menu-to-go {
+  padding: 20px;
+}
+.set-border-cicis-menu-to-go {
+   border: 5px inset #4f4f4f;
+}
+set-box-shadow-cicis-menu-to-go {
+  -webkit-box-shadow: 4px 4px 14px #4f4f4f;
+     -moz-box-shadow: 4px 4px 14px #4f4f4f;
+          box-shadow: 4px 4px 14px #4f4f4f;
+}
+
+/*===========================
+		Notes Preview Iframe
+============================*/
+
+.responsive-wrapper {
+  position: relative;
+  height: 0;    /* gets height from padding-bottom */
+  overflow: hidden;
+  /* put following styles (necessary for overflow and 
+     scrolling handling) inline in .embed-responsive-element-wrapper around iframe because not stable in CSS
+    -webkit-overflow-scrolling: touch; 
+                      overflow: auto; */
+}
+.responsive-wrapper img,
+.responsive-wrapper object,
+.responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   
+  border-style: none;
+  padding: 0;
+ 
+}
+
+/*
+    css particular to notes details iframe
+*/
+
+#Iframe-Cicis-Menu-To-Go {
+  width: 500px;
+  height: 400px;
+  border-radius: 3px;
+  border: 1px solid #d1d1d1;
+   margin-left: -180px;   
+}
+/*
+   padding-bottom = h/w as %
+*/
+.responsive-wrapper-padding-bottom-90pct {
+  padding-bottom: 90%;
+}
+
+/*===========================
+		Modal
+============================*/
+.modal {
+    margin-top: 120px;
+}
+
+.modal-title-success
+{
+    margin-top: 50px;
+    margin-left: 250px;  
+}
+
+.modal-title-success img {
+    width: 63px;
+    height: 63px;
+}
+
+.modal-header h4 {
+    margin-left: 120px;
+    font-family: "Open Sans";
+    font-size: 26px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 30px;
+    color: #6255a5;
+}
+
+.modal-body{
+    margin-left: 250px;
+    border: none;
+}
+
+.modal-body p {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 22px;
+    color: #333333;
+    margin-right: 55px;
+    margin-bottom: 20px;
+}
+
+#dear-person {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 22px;
+    color: #333333;
+}
+
+/*=======================================
+            Search Notes
+========================================*/
+#searchNotes {
+    height: 250px;
+    background: none;
+}
+
+
+#pagination-searchnotes {
+   margin-top: 1600px;
+   margin-bottom: 50px;
+}
+
+#search-content {
+    width: 100%;
+    display: table;    
+}
+
+.search-details h4 {
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 38px;
+    color: #6255a5;
+    margin-left: -80px;
+}
+
+#search-content-inner {
+    display:table-cell;
+    vertical-align: middle;
+}
+.search {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    height: 310px;
+}
+
+#filter {
+    margin: 0;
+    padding: 0;
+}
+
+#search-detail {
+    background-color: #f9f9f9;
+    margin-left: -80px;
+    padding: 30px;
+    width: 1300px;
+    height: 181px;
+}
+input.empty {
+    font-family: FontAwesome !important;
+    font-style: normal;
+    text-decoration: inherit;
+    font-size: 14px;
+}
+.form-control {
+    font-family: "Open Sans",sans-serif;
+    color: #8a8a8a;
+    font-weight: 400;
+    line-height: 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #d1d1d1;
+    height: auto;
+}
+
+.form-group {
+    margin: 0;
+}
+
+.form-search-01 {
+    margin-bottom: 20px;
+    border: 1px solid #d1d1d1;
+    width: 1250px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+.form-search-01 input {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+    width: 1250px;
+    height: 50px;
+}
+
+
+/* rate */
+.rate {
+    float: left;
+    height: 30px;
+    padding: 0  0 0 30px;
+    margin: 0 0 15px 0;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:22px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+#notes { 
+    margin-bottom: 60px;
+}
+
+#notes .book-item {
+    border: 1px solid #d1d1d1;    
+    padding: 0; 
+    margin:30px 20px 20px 15px;
+    width: 350px;
+    border-radius: 5px;
+}
+#notes .book-item .item01 {
+    height: 110px;
+}
+#notes .book-item .item02 {
+    height: 154px;
+}
+#notes .book-item p {
+    float: left;
+    margin: 7px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+}
+ul.book-details {
+    list-style: none;
+    padding: 0 30px;
+    margin: 0;
+}
+ul.book-details li {
+    margin-bottom: 15px;
+    display: -webkit-inline-box;  display: -ms-inline-flexbox; 
+    display: flex;
+    font-size: 16px;
+}
+ul.book-details li span {
+    font-family: "Open-sans",sans-serif;
+    padding-left: 10px;
+    font-size: 14px;
+}
+ul.book-details li span.red {
+    color: #df3434;
+}
+#notes .book-item h6 {
+    font-family: "Open Sans";
+    padding:  30px 30px;
+    margin: 0;
+    font-size: 20px;
+    display: inline-block;
+    line-height: 20px;
+    font-weight: 600;
+    color: #6255a5;
+    font-style: bold;
+}
+
+
+#page {
+    padding: 0;
+}
+
+#page .pagination li a {
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        color: #333;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 10px;
+        z-index: 0;
+}
+
+.page-item,
+.page-link {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    border: none;
+    margin-top: 10px;
+    /* margin-left: 10px; */
+    z-index: 0;
+}
+.pagination-lg > li > a, .pagination-lg > li > span {
+    padding: 8px 10px;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    border: none;
+    margin-left: 10px;
+    z-index: 0;
+}
+#page .pagination li a:hover,
+#page .pagination li a:focus {
+    background: #6255a5;
+    color: #fff;
+    text-align: center;
+    
+}
+
+/*=======================================
+            Page Heading
+========================================*/
+.page-heading {
+    color: #fff;
+    margin-top: 150px;
+}
+
+/*=======================================
+            FAQ
+========================================*/
+#FAQ {
+    height: 250px;
+    background: none;
+}
+
+#faq-content {
+    width: 100%;
+    display: table; 
+}
+
+#faq-content-inner {
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.question-heading h2 {
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px;
+    margin-left:-120px;
+    margin-top: 50px;
+}
+
+#General-Questions {
+    margin-top: 60px;
+}
+
+.question-mark-grey {
+    margin-left: 200px;
+}
+
+.question-mark {
+    width: 1400px;
+    height: 120px;
+    border: 1px solid #d1d1d1;
+    margin-left: -100px;
+    margin-bottom: 15px;
+}
+
+.question-mark p {
+    margin-top: 10px;
+    margin-left:0;
+}
+
+#answer1,
+#answer2,
+#answer3,
+#answer4
+#answer5,
+#answer6,
+#answer7,
+#answer8 {
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
+    font-family: "Open Sans";
+    font-size: 16px;
+}
+
+.card-header p {
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333333;
+}
+
+.card-body {
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-left: -100px;
+    margin-top:50px;
+    color: #333333;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border: 1px solid #d1d1d1;
+}
+
+
+.question-mark,
+#question1,
+#question2,
+#question3,
+#question4,
+#question5,
+#question6,
+#question7,
+#question8 {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 22px;
+    color: #333333;
+}
+
+.question-mark {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style:normal;
+    line-height: 22px;
+    color: #333333;
+}
+
+.question-mark-grey {
+    width: 1400px;
+    height: 60px;
+    background-color: #f3f3f3;
+    margin-left: -100px;
+    margin-bottom: 10px;
+}
+
+.question-mark-grey p {
+    margin-top: 15px;
+    margin-left: 8px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 22px;
+    color: #333333;
+}
+
+#uploaders {
+    margin-bottom: 60px;
+}
+
+#Questions {
+    margin-bottom: 100px;
+}
+
+/*=======================================
+            Contact Us
+========================================*/
+#Contact-Us {
+    height: 250px;
+    background: none;
+}
+
+
+.contact-us-heading h2 {
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px;     
+}
+
+.contact-us-heading h4 
+{
+    margin-bottom: 15px;
+}
+
+#btn-submit {
+    width:172px;
+    height: 30px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-style: bold(600);
+    font-size: 18px;
+    color:#fff;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+#contact-us-form {
+   margin: 0;
+}
+
+.form-group {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #8a8a8a;
+    margin-top:10px;
+    margin-bottom: 5px;   
+}
+
+#contact-form-left h5 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+#contact-form-right h5 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+#contact-form-right textarea {
+    border: 1px solid #d1d1d1;
+    width: 550px;
+    height: 232px;
+    border-radius: 3px;
+}
+
+.btn-submit {
+    background-color: #6255a5;
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    color: #fff;
+    font-style: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center; 
+}
+
+#hr-contact-us {
+    margin-top: 40px;
+}
+
+textarea .form-control {
+   border: 1px solid #d1d1d1;
+   width: 550px;
+   height: 232px;
+   border-radius: 3px;
+}
+
+/*=======================================
+            Login
+========================================*/
+#login {
+    background: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#login .img-pre-login {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-size: cover;
+}
+#login-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+#login-content-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  padding-right: 10px;
+  position: relative;
+  z-index: 2;
+}
+.panel-body {
+    padding: 40px;
+}
+.logo{
+    padding: 0;
+    align-content: center;
+
+}
+.logo img{
+    margin:auto;
+    padding-bottom: 25px;
+}
+
+.login-heading h2 {
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-style: bold;
+    color: #6255a5;
+    font-size: 34px;
+    line-height: 38px;
+}
+.login-heading p {
+    font-family: "Open Sans";
+    margin:20px 0 25px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+#login label {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+#login input {
+    font-family: "Open Sans";
+    border: 1px solid #6255a5;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #000;
+    
+}
+#login .form-group {
+    margin-top: 20px;
+}
+.border-red {
+    border: 1px solid #ff5e5e!important;
+}
+#login .blue {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #6255a5;
+    
+}
+
+.btn-login-form {
+    background-color: #6255a5;
+    width: 480px;
+    height: 40px;
+    color: #fff;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;   
+}
+.panel-body ::placeholder{
+    font-family: "Open Sans";
+    color: #8a8a8a;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+#login .small {
+    color: #ff3636;
+    padding: 0;
+    margin: 5px 0 15px 0;
+    font-size: 13px;
+    line-height: 10px;
+    font-weight: 300;
+}
+#login .border-decoration {
+    text-decoration: none;
+}
+#login .signup {
+    font-family: "Open Sans";
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-style: normal;
+}
+#login .margin-left {
+    margin-left: 10px;
+    margin-top: 7px;
+}
+.form-check {
+        margin-bottom: 20px;
+}
+#login .form-check-input {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #d1d1d1;
+    float: left;
+}
+#password-field span {
+    height: 2px;
+    width: 2px;
+}
+
+/*=======================================
+            Add Notes
+========================================*/
+#addNotes {
+    height: 310px;
+    background: none;
+}
+#add-content {
+    width: 100%;
+    display: table;    
+}
+
+#add-content-inner {
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.add {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    height: 310px;
+}
+#basic-details .details {
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+#basic-details label {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #333333;
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+#basic-details input {
+    font-family: "Open Sans";
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #333333;    
+}
+#basic-details .form-group {
+    margin-top: 20px;
+}
+#basic-details input[type="file"] {
+    height: 110px;
+}
+#basic-details textarea {
+    height: 153px;
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    border-radius: 3px;
+}
+
+#basic-details .btn-sell {
+    margin-top: -30px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: #6255a5;
+    height: 50px;
+    width: 150px;
+    font-size: 14px;
+    font-family: "Open-Sans",sans-serif;
+    line-height: 18px;
+}
+#basic-details .margin-left {
+    margin-left: 20px;
+}
+#basic-details .margin-right {
+    margin-right: 30px;
+}
+#basic-details .sell-price{
+    margin-top: 20px;
+}
+#basic-details input[type="radio"]{
+    width: 25px;
+    height: 25px;
+    border:1px solid #d1d1d1;
+    margin-right: 5px;
+    padding: 0;
+    margin-top: 0;;
+}
+.margin-bottom{
+    margin-top: 5px;
+}
+
+
+
+/*=======================================
+            Change Password
+========================================*/
+#changePassword {
+    background: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.changepassword-logo {
+    visibility: visible;
+}
+
+#changePassword .img-pre-login {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-size: cover;
+}
+#changePassword-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#changePassword-content-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+#changePassword label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #333;
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+#changePassword input {
+    border: 1px solid #6255a5;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #000;
+    
+}
+#changePassword .form-group {
+    margin-top: 20px;
+}
+
+#changePassword .border-decoration {
+    text-decoration: none;
+}
+#changePassword .margin-top {
+    margin-top: 20px;
+}
+
+/*=======================================
+            Sign Up
+========================================*/
+#signup {
+    background: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#signup .img-pre-login {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-size: cover;
+}
+#signup-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+#signup-content-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+#signup .check-circle {
+    list-style: none;
+    color: green;
+    padding: 0;
+    margin-bottom: 0px;
+
+}
+#signup .check {
+    font-family: "Open-Sans",sans-serif;
+    margin-left: 10px;
+    font-size: 16px;
+}
+#signup label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #333333;
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+#signup input {
+    border: 1px solid #6255a5;
+    border-radius: 3px;
+     font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #000;
+    
+}
+#signup .form-group {
+    margin-top: 20px;
+}
+#signup .blue {
+    color: #6255a5;
+}
+#signup .border-decoration {
+    text-decoration: none;
+}
+#signup .signup {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+#signup .margin-top {
+    margin-top: 20px;
+}
+
+.btn-signup-form {
+    display: inline-block;
+    background-color: #6255a5;
+    box-sizing: border-box;
+    text-align: center;
+    max-width: auto;
+    max-height: auto;
+    color: #fff;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;   
+}
+
+
+/*=======================================
+            Forgot Password
+========================================*/
+#forgotPassword {
+    background: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#forgotPassword .img-pre-login {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-size: cover;
+}
+#forgotPassword-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+#forgotPassword-content-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+#forgotPassword label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #333;
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+#forgotPassword input {
+    border: 1px solid #6255a5;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #000;
+    
+}
+#forgotPassword .form-group {
+    margin-top: 20px;
+}
+#forgotPassword .blue {
+    color: #6255a5;
+}
+#forgotPassword .border-decoration {
+    text-decoration: none;
+}
+#forgotPassword .margin-top {
+    margin-top: 20px;
+}
+
+.btn-submit-form {
+    background-color: #6255a5;
+    width: 480px;
+    height: 40px;
+    color: #fff;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase; 
+}
+
+
+
+/*=======================================
+            Email Verification
+========================================*/
+/*#email-verification{
+    background:none;
+    width: 100%;
+    height: 100%;
+}
+
+#email-verification-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+#email-verification-content-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#email-verification .form-group {
+    margin-top: 20px;
+}
+
+#email-verification .border-decoration {
+    text-decoration: none;
+}
+#email-verification .margin-top {
+    margin-top: 200px;
+}
+
+.emailverification-logo {
+    margin-left: -50px;
+}
+
+.btn-submit-form {
+    background-color: #6255a5;
+    width: 480px;
+    height: 40px;
+    color: #fff;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;   
+}*/
+
+/*=======================================
+            Email Verification
+========================================*/
+#emailVerification {
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#verification-wrapper {
+    display: block;
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.verification-content {
+    background-color: #fff;
+    padding: 30px;
+}
+
+#verification-wrapper .verification-content h2 {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #6255a5;
+    margin-bottom: 20px;   
+}
+
+#verification-wrapper .verification-content h6 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#verification-wrapper .verification-content p {
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #333;
+}
+
+#verification-wrapper .verification-content .btn-submit {
+    width: 540px;
+    background-color: #6255a5;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    border-radius: 3px;
+    text-align: center;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/*===========================
+		Dashboard
+============================*/
+#dashboard-heading {
+    margin-left: -90px;
+    margin-top:60px;
+}
+
+#dashboard-heading h2 {
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+#dashboard-heading h3 {
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px;
+    color: #6255a5;
+}
+
+.btn-addnote {
+    color: #fff;
+    background-color: #6255a5;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    margin-top:60px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    margin-left: 618px;
+}
+
+.table {
+    width: 780px;
+    height: 151px;
+    border: 1px solid #d1d1d1;
+}
+
+.left-dashboard {
+    margin-top: 20px;
+}
+
+.left-dashboard1 {
+    float: left;
+    margin-top: 40px;
+    margin-left: 25px;
+}
+
+.left-dashboard1 span,
+.left-dashboard2 span
+{
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px;
+    color: #6255a5;
+}
+
+.left-dashboard1 h6,
+.left-dashboard2 h6 {
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal; 
+    margin-top: 8px;
+    color: #333333;
+}
+
+
+.left-dashboard2 {
+    float: right;
+    margin-top: 40px;
+    margin-right: 50px;
+    
+}
+
+.dashboard-item {
+	border: 1px solid #d1d1d1;
+	height: 151px;
+    width: 170px;
+	margin-top: 17px;
+    margin-left: 215px;
+    margin-right: 30px;
+}
+
+.dashboard-item h3 {
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-weight: 700;
+    font-style:bold;
+    line-height: 34px;
+    color: #6255a5;
+    margin-top: 40px;
+    
+}
+
+.dashboard-item h6 {
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal; 
+    margin-top: 8px;
+}
+
+.progress-notes-heading h3,
+.published-notes-heading h3{
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px; 
+    margin-top: -100px;
+    margin-left: -90px;
+}
+
+.search-textbox {
+    margin-top: -100px;
+    width: 322px;
+    height:50px;
+    margin-left: 220px;
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding: 10px 50px;
+}
+
+#search-icon {
+    margin-top: -65px;
+    margin-left: 240px;
+}
+
+#search-icon:hover {
+    visibility: hidden;
+}
+
+.btn-search {
+    background-color: #6255a5;
+    width: 117px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: -180px;
+    margin-left: 175px;
+    padding: 15px 20px;
+}
+
+
+.table-progress-notes,
+.table-published-notes{
+    margin-top: -50px;
+    margin-left: -90px;
+    width: 1360px;
+    height: 444px;
+    border-radius: 3px;   
+}
+
+.table-progress-notes > thead,
+.table-published-notes > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-progress-notes > tbody,
+.table-published-notes > tbody{
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+th,tr,td {
+    text-align: center;
+    height: 75px;
+    
+}
+
+.table-progress-notes>thead>tr>th,
+.table-progress-notes>tbody>tr>td,
+.table-published-notes>thead>tr>th,
+.table-published-notes>tbody>tr>td{
+    vertical-align:middle; 
+}
+
+table.table-progress-notes tr:hover,
+table.table-published-notes tr:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+
+#pagination2 {
+    overflow: visible;
+    margin-bottom: 60px;
+    
+}
+
+#hr-publishednotes {
+    margin-top: -10px;
+}
+
+#footer {
+    margin-top: 100px;
+}
+
+
+.dropdown-menu div a{
+    font-style: "Open Sans";
+    font-size: 18px;
+    color: #333333;
+    text-decoration: none;
+}
+
+
+
+.dropdown-menu {
+    width: 200px;
+    text-align: center;
+    margin-left: -80px;
+    height:270px;
+}
+
+
+div.dropdown-item > a:hover {
+    background-color: #6255a5;
+    color: #fff;
+    height: auto;
+    width: auto;
+    padding: 5px 20px;
+}
+
+div.dropdown-item.item-logout {
+    text-transform: uppercase;
+    color: #6255a5;
+    font-style: bold;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+div.dropdown-item.item-logout:hover {
+    background-color: #6255a5;
+    color: #fff;
+    height: 35px;
+    padding: 5px 20px;
+}
+
+/*===========================
+		Sold Notes
+============================*/
+.sold-notes-heading h3 {
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px; 
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+.table-sold-notes>thead>tr>th,
+.table-sold-notes>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.table-sold-notes {
+    margin-top: 200px;
+}
+
+.soldnotes-btn-search {
+    background-color: #6255a5;
+    width: 117px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-left: 175px;
+    padding: 15px 20px;
+}
+
+.soldnotes-search-textbox {
+    margin-top: 50px;
+    width: 322px;
+    height:50px;
+    margin-left: 220px;
+}
+
+.table-sold-notes
+{
+    margin-top: -10px;
+    margin-left: -90px;
+    width: 1360px;
+    height: 444px;
+    border-radius: 3px;   
+}
+
+.img-eye {
+    margin-left: -50px;
+    margin-bottom: -30px;
+}
+
+.img-dot {
+    margin-top: -15px;
+    margin-left: 30px;
+}
+
+
+.table-sold-notes > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-sold-notes > tbody{
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 22px;
+    color: #333333;
+}
+
+.soldnotes-col2 {
+    color: #6255a5;
+}
+
+.left-arrow,
+.right-arrow {
+    margin-top: -240px;   
+}
+
+table.table-sold-notes tr:hover {
+    background: none;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+.dropdown-sold-notes {
+    height: 70px;
+    width: 168px;
+    padding: 25px 12px;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+
+/*===========================
+		My Downloads
+============================*/
+.my-downloads-heading h3 {
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px; 
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+
+.mydownloads-search-textbox {
+    margin-top: 50px;
+    width: 322px;
+    height:50px;
+    margin-left: 220px;
+}
+
+.mydownloads-btn-search {
+    background-color: #6255a5;
+    width: 117px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-left: 175px;
+    padding: 15px 20px;
+}
+
+.table-my-downloads>thead>tr>th,
+.table-my-downloads>tbody>tr>td {
+    vertical-align: middle;
+}
+
+
+.table-my-downloads
+{
+    margin-top: -10px;
+    margin-left: -90px;
+    width: 1360px;
+    height: 444px;
+    border-radius: 3px;   
+}
+
+.dropdown-my-downloads {
+    height: 130px;
+    width: 250px;
+    text-align: left;
+    padding: 20px 20px;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+.table-my-downloads > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-my-downloads > tbody {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 22px;
+    color: #333333;
+}
+
+/*===========================
+		My Rejected Notes
+============================*/
+.rejected-notes-heading h3 {
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px; 
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+.table-rejected-notes>thead>tr>th,
+.table-rejected-notes>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.rejectednotes-btn-search {
+    background-color: #6255a5;
+    width: 117px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-left: 175px;
+    padding: 15px 20px;
+}
+
+.rejectednotes-search-textbox {
+    margin-top: 50px;
+    width: 322px;
+    height:50px;
+    margin-left: 220px;
+}
+
+.table-rejected-notes
+{
+    margin-top: -10px;
+    margin-left: -90px;
+    width: 1360px;
+    height: 444px;
+    border-radius: 3px;   
+}
+
+
+
+.table-rejected-notes > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-rejected-notes > tbody{
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 22px;
+    color: #333333;
+}
+
+.rejectednotes-col2 {
+    color: #6255a5;
+}
+
+
+table.table-rejected-notes tr:hover {
+    background: none;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+.dropdown-rejected-notes {
+    height: 70px;
+    width: 168px;
+    padding: 25px 12px;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+/*===========================
+		Buyer Requests
+============================*/
+.buyer-requests-heading h3 {
+    color: #6255a5;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 28px; 
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+.table-buyer-requests>thead>tr>th,
+.table-buyer-requests>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.buyerrequests-btn-search {
+    background-color: #6255a5;
+    width: 117px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-left: 175px;
+    padding: 15px 20px;
+}
+
+.buyerrequests-search-textbox {
+    margin-top: 50px;
+    width: 322px;
+    height:50px;
+    margin-left: 220px;
+}
+
+.table-buyer-requests
+{
+    margin-top: -10px;
+    margin-left: -90px;
+    width: 1360px;
+    height: 444px;
+    border-radius: 3px;   
+}
+
+.table-buyer-requests > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-buyer-requests > tbody{
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 22px;
+    color: #333333;
+}
+
+.buyerrequests-col2 {
+    color: #6255a5;
+}
+
+
+table.table-buyer-requests tr:hover {
+    background: none;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+.dropdown-buyer-requests {
+    height: auto;
+    width: auto;
+    padding: 25px 12px;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+
+/*===========================
+    Add Review
+============================*/
+.stars-review {
+    margin-bottom: 40px;
+}
+
+.textarea-addreview {
+    border: 1px solid #d1d1d1; 
+    font-size: 16px;
+    color: #333333;
+    width: 550px;
+    height: 100px;
+}
+
+.add-review-heading {
+    margin-left: -100px;
+}
+
+.modal-header {
+    border: none;
+}
+
+
+/*========================================================================================================================
+                                                    Admin
+==========================================================================================================================*/
+
+/*===========================
+		Dashboard Admin
+============================*/
+#dashboardadmin-heading {
+    margin-left: -90px;
+    margin-top:60px;
+}
+
+#dashboardadmin-heading h2 {
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+.dashboardadmin-item {
+	height: 150px;
+    width: 350px;
+	margin-top:20px;
+    margin-left: -100px;
+    border: 1px solid #d1d1d1;
+}
+
+.dashboardadmin-item h3 {
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-weight: 700;
+    font-style:bold;
+    line-height: 34px;
+    color: #6255a5;
+    margin-top: 40px;
+    
+}
+
+.dashboardadmin-item h6 {
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal; 
+    margin-top: 8px;
+}
+
+.month-textbox {
+    margin-top: -100px;
+    width: 150px;
+    height:50px;
+    margin-left: 130px;
+    font-size: 16px;
+}
+
+.btn-admin-search {
+    background-color: #6255a5;
+    width: 117px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: -170px;
+    margin-left: 280px;
+    padding: 15px 20px;
+}
+
+#arrow-down {
+    margin-top: -70px;
+    margin-left: 245px;
+}
+
+.dashboardadmin-col2 {
+    color: #6255a5;
+}
+
+#progress-notes,
+#published-notes {
+    margin-bottom: -60px;
+}
+
+.table-published-notes-admin {
+    margin-top: -50px;
+    margin-left: -90px;
+    width: 1270px;
+    height: 444px;
+    border-radius: 3px; 
+}
+
+.table-published-notes-admin > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-published-notes-admin > tbody{
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+.table-published-notes-admin>thead>tr>th,
+.table-published-notes-admin>tbody>tr>td{
+    vertical-align:middle; 
+}
+
+table.table-progress-notes-admin tr:hover,
+table.table-published-notes-admin tr:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+.img-dot-admin {
+    margin-top: -15px;
+}
+
+.dropdown-dashboard-admin {
+    height: 130px;
+    width: 200px;
+    padding: 25px 12px;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    text-align: left;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+.dashboard-admin-person {
+    height:150px;
+    width: 200px;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.dashboard-admin-reports {
+    height: 50px;
+    width: 180px;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.dashboard-admin-notes {
+    height: auto;
+    width: 300px;
+    text-align: left;
+    padding: 10px 25px;
+}
+
+.dashboard-admin {
+    margin-left: -100px;
+    margin-top:60px;
+    margin-right: 80px;
+    width: 400px;
+}
+
+
+/*===========================
+		Admin Footer 
+============================*/
+.left-footer {
+    margin-left: 230px;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.right-footer {
+    margin-right: 50px;
+    margin-top:-55px;
+    
+}
+
+#footer-admin hr {
+    margin-bottom: 0!important;
+}
+
+/*===========================
+		Manage Administrator
+============================*/
+.btn-manageadmin-search {
+    background-color: #6255a5;
+    width: 140px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 162px;
+    padding: 15px 20px;
+}
+
+.admin-search-textbox {
+    width: 322px;
+    height:50px;
+    margin-left: 120px;
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding: 10px 50px;
+}
+
+#admin-search-icon {
+    margin-top: -65px;
+    margin-left: 130px;
+}
+
+.btn-admin-addadministrator {
+    background-color: #6255a5;
+    width: 300px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: -90px;
+    padding: 15px 20px;
+    margin-bottom: 60px;
+}
+
+.btn-admin-addtype {
+    background-color: #6255a5;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: -90px;
+    padding: 15px 20px;
+    margin-bottom: 60px;
+}
+
+/*===========================
+		My Profile
+============================*/
+#my-profile h2 {
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-style: bold;
+    font-weight: 600;
+    color: #6255a5;
+    margin-left: -100px;
+    margin-top: 50px;
+}
+
+.profile-form {
+    margin-left: -80px;
+}
+
+.profile-form  h5 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: #333333;
+}
+
+.profile-form .form-control {
+    height: 45px;
+}
+
+#phoneno {
+    height: 45px;
+    margin-top: 40px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.phoneid {
+   margin-top: -30px; 
+}
+
+#phoneno-arrow-down  {
+    margin-left: 130px;
+    margin-top: 22px;
+}
+
+.upload-profile-picture Input[type=file] {
+    height: 110px;
+    position: relative;
+    color: transparent;
+}
+
+.upload-profile-picture img {
+    margin-left: 50px;
+}
+
+Input[type=file]::-webkit-file-upload-button {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
+    height: 90px;
+    width: 120px;
+    z-index: 999;
+    opacity: 0;
+}
+
+.upload-profile-picture .uploadmypic {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
+}
+
+.upload-profile-picture .uploadmypic h6 {
+    color: #ced4da !important;
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+#btn-submit-admin {
+    margin-top: 10px;
+    width:100px;
+    height: 40px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-style: bold;
+    font-weight: 600;
+    font-size: 18px;
+    color:#fff;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    margin-left: -80px;
+}
+
+/*===========================
+		Add Category
+============================*/
+#category-description
+{   height: 150px;
+    position: relative;
+    font-size: 16px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-style: normal;
+    width:570px;
+}
+
+/*===========================
+		Members
+============================*/
+
+#members-heading h2 {
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 38px;
+    color: #6255a5;
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+
+.members-search-textbox {
+    width: 322px;
+    height:50px;
+    margin-left: 120px;
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding: 10px 50px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+#members-search-icon {
+    margin-top: -185px;
+    margin-left: 130px;
+}
+
+.btn-members-search {
+    background-color: #6255a5;
+    width: 140px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 162px;
+    padding: 15px 20px;
+    margin-top: 50px;
+}
+
+.col-highlight {
+    color: #6255a5;
+}
+
+.table-members {
+    margin-top: -50px;
+    margin-left: -90px;
+    width: 1270px;
+    height: 444px;
+    border-radius: 3px; 
+}
+
+.table-members > thead {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 12px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-members > tbody{
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 5px;
+    color: #333333;
+}
+
+.table-members>thead>tr>th,
+.table-members>tbody>tr>td{
+    vertical-align:middle; 
+}
+
+table.table-members tr:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+.dropdown-members {
+    height: 100px;
+    width: 200px;
+    padding: 25px 12px;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    text-align: left;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+.img-dot-members {
+    margin-top:20px;
+}
+
+
+/*===========================
+		Notes Under Review
+============================*/
+#sellers {
+    height: 50px;
+    width: 174px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+.seller-select {
+    margin-left: -90px;
+    margin-top:10px;   
+}
+
+.seller-select h4 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+.buttons-review button {
+    width: 112px;
+    height: 40px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-style: bold;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.buttons-review > .btn-success {
+    background-color: #28a745;
+}
+
+
+.buttons-review > .btn-danger {
+    background-color: #ff3636;
+}
+
+.buttons-review > .btn-basic {
+    background-color: #cccccc;
+}
+
+.notes-reviews-eye-icon {
+    margin-left: 15px;
+}
+
+.reviews-search-textbox {
+    width: 322px;
+    height:50px;
+    margin-left: 200px;
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding: 10px 50px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+#reviews-search-icon {
+    margin-top: -185px;
+    margin-left: 220px;
+}
+
+.btn-reviews-search {
+    background-color: #6255a5;
+    width: 140px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 250px;
+    padding: 15px 20px;
+    margin-top: 50px;
+}
+
+/*=======================================
+            User Profile
+========================================*/
+#userProfile {
+    height: 310px;
+    background: none;
+}
+#userProfile-content {
+    width: 100%;
+    display: table;    
+}
+
+#userProfile-content-inner {
+    display:table-cell;
+    vertical-align: middle;
+}
+.userProfile {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    height: 310px;
+}
+#basic-user-details input[type="tel"]{
+    width: 455px;
+}
+
+.tel {
+    padding: 0;
+}
+
+.userprofile-profile-picture {
+    margin-left: -500px;
+}
+
+#basic-user-details .details {
+    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-left: -80px;
+}
+
+#basic-user-details label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333;
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+.profile-pic-heading {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+#basic-user-details input {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 3px;
+    line-height: 20px;
+    color: #8a8a8a;
+    height: 40px;
+}
+#basic-user-details select {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 3px;
+    line-height: 20px;
+    color: #8a8a8a;
+    height: 40px;
+}
+.phonecode {
+    margin-left: -18px;
+}
+#phone-no-input {
+    margin-left: -10px;
+}
+#basic-user-details option {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 3px;
+    line-height: 20px;
+    color: #8a8a8a;
+    height: 40px;
+}
+
+#basic-user-details input[type="file"] {
+    height: 110px;
+    color: transparent;
+}
+#basic-user-details textarea {
+    height: 153px;
+}
+
+#basic-user-details .btn-sell {
+    margin-top: -30px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: #6255a5;
+    height: 30px;
+    width: 150px;
+    font-size: 14px;
+    font-family: "Open-Sans",sans-serif;
+    line-height: 18px;
+}
+#basic-user-details .margin-left {
+    margin-left: 20px;
+}
+#basic-user-details .margin-right {
+    margin-right: 30px;
+}
+#basic-user-details .sell-price{
+    margin-top: 20px;
+}
+#basic-user-details input[type="radio"]{
+    width: 25px;
+    height: 25px;
+    border:1px solid #d1d1d1;
+    margin-right: 5px;
+    padding: 0;
+    margin-top: 0;;
+}
+.margin-bottom{
+    margin-top: 5px;
+}
+
+
+/*===========================
+    Downloaded Notes
+============================*/
+#buyer {
+    height: 50px;
+    width: 160px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+    margin-left: 160px;
+}
+
+#notes {
+    
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+#seller {
+    height: 50px;
+    width: 160px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+    margin-left: 80px;
+}
+
+.note-select {
+    margin-left: -90px;
+    margin-top:10px;   
+}
+
+.note-select h4 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+.buyer-select {
+    margin-top:10px;   
+}
+
+.buyer-select h4 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+
+.sellers-select {
+    margin-top:10px;   
+}
+
+.sellers-select h4 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+.downloaded-notes-eye-icon {
+   margin-left: 2px;
+}
+
+/*=======================================
+         Member Details Admin
+========================================*/
+#memberDetails {
+    margin-top: 100px;
+}
+
+#memberDetails .vr {
+    border-right: 1px solid #d1d1d1;
+    padding-right: 0;
+}
+
+#memberDetails table.border {
+    border: 1px solid #d1d1d1;
+    border-radius: 3px !important;
+}
+
+#memberDetails table {
+    overflow: scroll;
+}
+
+#memberDetails .width-view {
+    width: 190px;
+    margin-left: -190px;
+}
+
+#memberDetails .eye {
+    margin: 0 20px 0 -20px;
+}
+
+.profile-form h5 {
+    margin-bottom: 5px;
+}
+
+#memberDetails .notes-members-heading h3 {
+    color: #6255a5;
+    font-size: 40px;
+    font-family: "Open Sans";
+    font-weight: 800;
+    font-style: bold;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
+.userprofile {
+    margin-left: -80px;
+}
+
+.user-profile-form {
+    margin-left: -620px;
+}
+
+
+#memberDetails hr {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.memberDetails .left02 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 34px;
+    color: #333333;
+
+}
+
+#memberDetails .right01 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 34px;
+    color: #6255a5;
+}
+
+.member-details h3 {
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+.member-details h4 {
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 38px;
+    color: #6255a5;
+    margin-left: -80px;
+}
+
+.table-members-details{
+    margin-left: -90px;
+    width: 1300px;
+    height: 444px;
+    border-radius: 3px;   
+}
+
+.table-members-details > thead {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    font-style: bold;
+    line-height: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.table-members-details > tbody{
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #333333;
+}
+
+.table-members-details>thead>tr>th,
+.table-members-details>tbody>tr>td{
+    vertical-align:middle; 
+}
+
+.dropdown-members-details {
+    height: 70px;
+    width: 200px;
+    padding: 25px 12px;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    color: #333333;
+    text-align: left;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+table.table-members-details tr:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}
+
+/*===========================
+    Change Password
+============================*/
+.btn-submit-form-cp 
+{
+    margin-top: 20px;
+    background-color: #6255a5;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase; 
+}
+
+.pagination,
+.pagination-lg {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    border: none;
+    z-index: 2;
+    display: inline-flex;
+}
+
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+        background-color: #6255a5;
+        border-color: #6255a5;
+        color: #fff;
+        cursor: pointer;
+        z-index: 2;
+}
+
+.right-arrow, .left-arrow {
+    color: #6255a5;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#sellerid {
+    width: auto;
+}
+
+.acolor a {
+    color:black;
+    text-decoration:none;
+    display: block;
+    clear: none;
+}

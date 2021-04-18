@@ -1,0 +1,73 @@
+﻿@model NotesMarkePlace.Models.addAdministrator
+
+
+@{
+    ViewBag.Title = "Add Administrator";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<!-- Add Administrator -->
+<section id="my-profile">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                    <h2>Add Administrator </h2>
+                </div>
+
+                @using (Html.BeginForm("AddAdministrator", "Admin", FormMethod.Post))
+                {
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-left profile-form">
+                            @Html.LabelFor(m => m.FirstName, "First Name *")
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your first name", @id = "firstname", @required = true } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            <br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-left profile-form">
+                            @Html.LabelFor(m => m.LastName, "Last Name *")
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your last name", @id = "lastname", @required = true } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })<br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-left profile-form">
+                            @Html.LabelFor(m => m.Email, "Email *")
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your email", @id = "email", @required = true } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br />
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2 col-xs-2 text-left profile-form">
+                            @Html.LabelFor(m => m.PhoneNumber_CountryCode, "Phone Number")
+                            <div class="form-group">
+                                <select onchange="submit()" id="country" name="country" class="form-control">
+                                    <option value="">+91</option>
+                                    <option value="">+635</option>
+                                    <option value="">+221</option>
+                                </select>
+                            </div><br>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <div class="form-group">
+
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your phone number", @type = "tel", @id = "phoneno", @name = "phone" } })
+                            </div><br>
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-blue" id="btn-submit-admin" title="Submit" type="submit">Submit</button>                   
+                }
+            </div>
+        </div>
+    </div>
+</section>

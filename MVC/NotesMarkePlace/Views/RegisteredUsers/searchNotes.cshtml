@@ -1,0 +1,215 @@
+﻿@model IPagedList<NotesMarkePlace.Models.SellerNote>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    IEnumerable<NotesMarkePlace.Models.NoteType> type = ViewData["Type"] as IEnumerable<NotesMarkePlace.Models.NoteType>;
+    IEnumerable<NotesMarkePlace.Models.NoteCategory> category = ViewData["Category"] as IEnumerable<NotesMarkePlace.Models.NoteCategory>;
+    IEnumerable<NotesMarkePlace.Models.Country> country = ViewData["Country"] as IEnumerable<NotesMarkePlace.Models.Country>;
+    var university = ViewData["University"] as IEnumerable<string>;
+    var course = ViewData["Course"] as IEnumerable<string>;
+}
+
+@{
+    ViewBag.Title = "Search Notes";
+    Layout = "~/Views/Shared/NonRegisteredUsers.cshtml";
+}
+
+
+<!-- Search Notes Heading -->
+<section id="searchNotes">
+    <img src="~/images/ContactUs/banner-with-overlay.jpg" alt="banner" class="img-responsive search">
+    <div id="faq-content">
+        <div class="container text-center" id="faq-content-inner">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="page-heading ">
+                        <h1>Search Notes</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Search Notes Heading Ends -->
+<!-- Search and Filter Notes -->
+<section id="filter">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="sub-heading member-details">
+                <h4>Search and Filter notes</h4>
+            </div>
+
+            <div id="search-detail">
+                <form id="search_submit" action="/RegisteredUsers/searchNotes" method="get">
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group form-search-01">
+                                <input type="text" class="form-control empty" id="search" name="search" placeholder="&#xf002;  Search notes here.."
+                                       value="@Request.QueryString["search"]"
+                                       onchange="onSubmit()"
+                                       style="font-family: Open Sans, FontAwesome" />
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="form-group">
+                                <select onchange="onSubmit()" id="type" name="type" class="form-control">
+                                    <option value="">Select type</option>
+                                    @foreach (NotesMarkePlace.Models.NoteType type1 in type)
+                                    {
+                                        <option value="@type1.Name">@type1.Name</option>
+                                    }
+                                </select>
+                                <script>
+                                        $("#type").val("@Request.QueryString["type"]");
+                                </script>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="form-group">
+                                <select onchange="onSubmit()" id="category" name="category" class="form-control">
+                                    <option value="">Select category</option>
+                                    @foreach (NotesMarkePlace.Models.NoteCategory category1 in category)
+                                    {
+                                        <option value="@category1.Name">@category1.Name</option>
+                                    }
+                                </select>
+                                <script>
+                                        $("#category").val("@Request.QueryString["category"]");
+                                </script>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="form-group">
+                                <select onchange="onSubmit()" id="university" name="university" class="form-control">
+                                    <option value="">Select university</option>
+                                    @foreach (var u in university)
+                                    {
+                                        <option value="@u">@u</option>
+                                    }
+                                </select>
+                                <script>
+                                        $("#university").val("@Request.QueryString["university"]");
+                                </script>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="form-group">
+                                <select onchange="onSubmit()" id="course" name="course" class="form-control">
+                                    <option value="">Select course</option>
+                                    @foreach (var c in course)
+                                    {
+                                        <option value="@c">@c</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="form-group">
+                                <select onchange="onSubmit()" id="country" name="country" class="form-control">
+                                    <option value="">Select country</option>
+                                    @foreach (NotesMarkePlace.Models.Country country1 in country)
+                                    {
+                                        <option value="@country1.Name">@country1.Name</option>
+                                    }
+                                </select>
+                                <script>
+                                        $("#country").val("@Request.QueryString["country"]");
+                                </script>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option value="">Select rating</option>
+                                    <option>1+</option>
+                                    <option>2+</option>
+                                    <option>3+</option>
+                                    <option>4+</option>
+                                    <option>5+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Search and Filter Notes Ends -->
+<!-- Notes -->
+<section id="notes">
+    <div class="container">
+
+        <div class="sub-heading search-details" style="margin-left: 80px;">
+            <h4>Total @ViewBag.Count notes </h4>
+        </div>
+
+        <div class="row">
+
+            @foreach (NotesMarkePlace.Models.SellerNote n in Model)
+            {
+                
+                <!-- item-01 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 book-item">
+                    <img src="~/UploadedFiles/@n.DisplayPicture" alt="book-cover" class="img-responsive">
+                    <div class="item01">
+                        <a href="@Url.Action("NoteDetails", "RegisteredUsers", new {noteid=n.ID})"> <h6> @n.Title </h6></a>
+                    </div>
+                    <div class="item02">
+                        <ul class="book-details">
+                            <li><img src="~/images/SearchNotes/university.png" alter="university"><span> @n.UniversityName </span></li>
+                            <li><img src="~/images/SearchNotes/pages.png" alter="pages"><span>@n.NumberofPages</span></li>
+                            <li><img src="~/images/SearchNotes/date.png" alter="date"><span>Mon, 15 Mar 2021</span></li>
+                            <li><img src="~/images/SearchNotes/flag.png" alter="flag"><span class="red">5 Users marked this note as inappropriate </span></li>
+                        </ul>
+
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                        <div>
+                            <p>100 reviews</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+<!-- notes Ends -->
+<!-- Pagination-->
+<section id="pagination-searchnotes">
+    <div id="page" class="text-center">
+        <div class="row">
+            @Html.PagedListPager(Model, i => Url.Action("searchNotes", "RegisteredUsers", new { i, search = Request.QueryString["search"], type = Request.QueryString["type"], category = Request.QueryString["category"], country = Request.QueryString["country"], course = Request.QueryString["course"] }), new PagedList.Mvc.PagedListRenderOptions
+            {
+                ContainerDivClasses = null,
+                LiElementClasses = new string[] { "page-item page-link" },
+                UlElementClasses = new string[] { "pagination pagination-lg justify-content-center" },
+                LinkToNextPageFormat = "<i class='fa fa-chevron-right right-arrow'></i>",
+                LinkToPreviousPageFormat = "<i class='fa fa-chevron-left left-arrow'></i>",
+                MaximumPageNumbersToDisplay = 6,
+                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+                DisplayLinkToLastPage = PagedListDisplayMode.Never
+            })
+
+        </div> <hr>
+    </div>
+</section>
+<!-- Pagination Ends-->

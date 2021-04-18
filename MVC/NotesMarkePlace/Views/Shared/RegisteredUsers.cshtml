@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Title -->
+    <title>Notes MarketPlace</title>
+
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/images/Homepage/favicon.ico">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700" rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!-- Responsive Tabs CSS -->
+    <link rel="stylesheet" href="~/Content/responsive.css">
+
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="site-nav-wrapper">
+
+                    <div class="navbar-header">
+                        <!-- Mobile Menu Open Button -->
+                        <span id="mobile-nav-open-btn">&#9776;</span>
+
+                        <!-- Logo -->
+                        <a class="navbar-brand smooth-scroll" href="#">
+                            <img src="~/images/Homepage/top-logo.png" alt="logo">
+                        </a>
+                    </div>
+
+                    <!-- Main Menu -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav pull-right">
+                                <li>@Html.ActionLink("Search Notes", "searchNotes", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Sell Your Notes", "Dashboard", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Buyer Requests", "BuyerRequests", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("FAQ", "FAQ", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Contact Us", "ContactUs", new { @class = "smooth-scroll" })</li>
+                                <li>
+                                    <div class="dropdown">
+                                        <img src="~/images/Dashboard/user-img.png" href="#" role="button" id="dropdownMenuLink"
+                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client" class="img-circle person-id">
+
+
+                                        <div class="dropdown-menu text-center">
+                                            <div class="dropdown-item">@Html.ActionLink("My Profile", "UserProfile", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("My Downloads", "MyDownloads", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("My Sold Notes", "MySoldNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("My Rejected Notes", "MyRejectedNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("Change Password", "changePassword", null, new { @class = "smooth-scroll" })</div>
+                                            <div class="dropdown-item item-logout">Logout</div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>@Html.ActionLink("Logout", "login", null, new { @id = "login-btn", @class = "btn btn-blue", @title = "Logout", @role = "button" }) </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu -->
+                    <div id="mobile-nav">
+                        <!-- Mobile Menu Close Button -->
+                        <span id="mobile-nav-close-btn">&times;</span>
+
+                        <div id="mobile-nav-content">
+                            <ul class="nav">
+                                <li>@Html.ActionLink("Search Notes", "searchNotes", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Sell Your Notes", "Dashboard", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Buyer Requests", "BuyerRequests", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("FAQ", "FAQ", new { @class = "smooth-scroll" })</li>
+                                <li>@Html.ActionLink("Contact Us", "ContactUs", new { @class = "smooth-scroll" })</li>
+                                <li>
+                                    <div class="dropdown">
+                                        <img src="~/images/Dashboard/user-img.png" href="#" role="button" id="dropdownMenuLink"
+                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client" class="img-circle person-id-mobile-nav">
+
+
+                                        <div class="dropdown-menu text-center mobile-menu-dropdown">
+                                            <div class="dropdown-item">@Html.ActionLink("My Profile", "UserProfile", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("My Downloads", "MyDownloads", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("My Sold Notes", "MySoldNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("My Rejected Notes", "MyRejectedNotes", null, new { @class = "smooth-scroll" })</div><br>
+                                            <div class="dropdown-item">@Html.ActionLink("Change Password", "changePassword", null, new { @class = "smooth-scroll" })</div>
+                                            <div class="dropdown-item item-logout">Logout</div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>@Html.ActionLink("Logout", "login", null, new { @id = "login-btn", @class = "btn btn-blue", @title = "Logout", @role = "button" }) </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <footer class="text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-8 col-xs-12">
+                    <p>
+                        <br>
+                        Copyright &copy; TatvaSoft All rights reserved.
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <ul class="social-list">
+                        <br />
+                        <li><a href="#"><img src="~/images/Homepage/facebook.png" alter="facebook"></a></li>
+                        <li><a href="#"><img src="~/images/Homepage/twitter.png" alter="twitter"></a></li>
+                        <li><a href="#"><img src="~/images/Homepage/linkedin.png" alter="linkedin"></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+    <!-- JQuery -->
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Wow JS -->
+    <script src="~/Scripts/wow.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/Scripts/script.js"></script>
+
+</body>
+
+</html>

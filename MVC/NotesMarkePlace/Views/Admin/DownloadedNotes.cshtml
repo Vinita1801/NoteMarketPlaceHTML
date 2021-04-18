@@ -1,0 +1,205 @@
+﻿@model IPagedList<NotesMarkePlace.Models.Download>
+@using PagedList
+@using PagedList.Mvc
+
+
+@{
+    ViewBag.Title = "Downloaded Notes";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+@{
+   
+    List<String> note = ViewData["Note"] as List<String>;
+    List<String> seller = ViewData["Seller"] as List<String>;
+    List<String> buyer = ViewData["Buyer"] as List<String>;
+}
+
+
+<!-- Downloaded Notes -->
+<section id="published-notes">
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-xs-12" id="members-heading">
+                    <h2>Downloaded Notes</h2>
+                </div>
+
+                <form id="search_submit" action="/Admin/DownloadedNotes" method="get">
+                    <div class="col-md-2 col-sm-4 col-xs-4 note-select">
+                        <h4>Note</h4>
+                        <select onchange="onSubmit()" name="notes" id="notes" class="form-control">
+                            <option value="">Select Note</option>
+                            @foreach (String n in note)
+                            {
+                                 <option value="@n">@n</option>
+                            }
+                        </select>
+                        <script>
+                              $("#notes").val("@Request.QueryString["notes"]");
+                        </script>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-4 sellers-select">
+                        <h4>Seller</h4>
+                        <form>
+                            <select name="sellerid" id="sellerid" class="form-control" onchange="submit()">
+                                <option value="">Select Seller</option>
+                                @foreach (String s in seller)
+                                {
+                                    <option value="@s">@s</option>
+
+                                }
+                            </select>
+
+                        </form>
+                        <script>
+                         $("sellerid").val("@Request.QueryString["sellerid"]");
+                        </script>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-4 buyer-select">
+                        <h4>Buyer</h4>
+                        <form>
+                            <select name="buyerid" id="buyerid" class="form-control" onchange="submit()">
+                                <option value="">Select Buyer</option>
+                                @foreach (String b in buyer)
+                                {
+                                    <option value="@b">@b</option>
+
+                                }
+                            </select>
+
+                        </form>
+                        <script>
+                         $("buyerid").val("@Request.QueryString["buyerid"]");
+                        </script>
+                    </div>
+                </form>
+
+                <form id="searchsubmit" action="/Admin/DownloadedNotes" method="get">
+                    <div class="row">
+                        <input hidden name="sort" value="@Request.QueryString["sort"]" />
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <input type="text" class="form-control reviews-search-textbox" value="@Request.QueryString["search"]" placeholder="Search" onchange="submit()" id="search" name="search">
+                            <img src="~/images/Dashboard/search-icon.svg" alter="search-icon" id="reviews-search-icon">
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <a class="btn btn-reviews-search" href="#" title="Search" role="button">Search</a>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table class="table table-bordless table-members text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr No.</th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="Title", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Note Title</a></th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="Category", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Category</a></th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="Buyer", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Buyer</a></th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="Seller", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Seller</a></th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="SellType", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Sell Type</a></th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="Price", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Price</a></th>
+                                <th scope="col"><a href="@Url.Action("DownloadedNotes","Admin", new { sort="DownloadDateTime", i = Request.QueryString["i"], search = Request.QueryString["search"]})">Downloaded Date/Time</a></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int index = 1;
+                                if (Request.QueryString["i"] == null || Request.QueryString["i"].Equals("1"))
+                                {
+                                    index = 1;
+                                }
+                                else
+                                {
+                                    index = (Convert.ToInt32(Request.QueryString["i"]) * 5) - 4;
+                                }
+                            }
+
+                            @foreach (NotesMarkePlace.Models.Download n in Model)
+                            {
+                                NotesMarkePlace.Models.NotesMarketPlaceEntities1 db = new NotesMarkePlace.Models.NotesMarketPlaceEntities1();
+                            <tr>
+                                <td>@(index++)</td>
+                                <td class="col-highlight"><a href="@Url.Action("NoteDetails", "Admin", new {noteid=n.ID})">@n.NoteTitle</td>
+                                <td>@n.NoteCategory</td>
+                                <td>
+                                    @n.User1.FirstName @n.User1.LastName
+                                    <img src="~/images/NotesUnderReview/eye.png" alt="eye" class="notes-reviews-eye-icon">
+                                </td>
+                                <td>
+                                    @n.User.FirstName @n.User.LastName
+                                    <img src="~/images/NotesUnderReview/eye.png" alt="eye" class="notes-reviews-eye-icon">
+                                </td>
+
+                                @{
+                                    if (@n.IsPaid == true)
+                                    {
+                                        <td>Paid</td>
+                                    }
+                                    else
+                                    {
+                                        <td>Free</td>
+                                    }
+                                }
+
+
+
+
+                                <td>@n.PurchasedPrice</td>
+                                <td>@n.CreatedDate</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <img src="~/images/SpamReports/dots.png" alt="edit" title="edit" class="img-dot" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alter="client">&nbsp;&nbsp;
+
+                                        <div class="dropdown-menu dropdown-members text-left">
+                                            <div class="dropdown-item" href="#">Download Notes</div><br>
+                                            <div class="dropdown-item" href="#">View More Details</div><br>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            }
+                            </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Downloaded Notes Ends -->
+<!-- Pagination-->
+<section id="pagination2">
+    <div id="page" class="text-center">
+        <div class="row">
+            @Html.PagedListPager(Model, i => Url.Action("NotesUnderReview", "Admin", new { i }), new PagedList.Mvc.PagedListRenderOptions
+            {
+                ContainerDivClasses = null,
+                LiElementClasses = new string[] { "page-item page-link" },
+                UlElementClasses = new string[] { "pagination pagination-lg justify-content-center" },
+                LinkToNextPageFormat = ">",
+                LinkToPreviousPageFormat = "<i class='fa fa-chevron-left left-arrow'></i>",
+                MaximumPageNumbersToDisplay = 5,
+                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+                DisplayLinkToLastPage = PagedListDisplayMode.Never
+            })
+
+        </div> <br /><br /><br /><br /> <hr>
+    </div>
+</section>
+<!-- Pagination Ends-->
+
+<script>
+    function onSubmit() {
+        document.getElementById('searchsubmit').submit();
+    }
+
+</script>
